@@ -6,6 +6,8 @@
 
 这是 Sealos Brain 首页原型的像素级前端复刻，视觉以[已发布原型](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/)为设计基准，包含项目部署、AI Ops、AI Proxy、Skills、App Store 和 Scale 六个区块及其动效与交互。
 
+线上演示：[https://sealos-brain-ui-dinkkees.sealoshzh.site](https://sealos-brain-ui-dinkkees.sealoshzh.site)
+
 ### 本地运行
 
 要求 Node.js 22 或更高版本。
@@ -53,6 +55,8 @@ docker run --rm -p 8080:8080 sealos-brain-ui:local
 ## English
 
 This repository is a pixel-faithful frontend reproduction of the Sealos Brain homepage prototype. The [published prototype](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/) is the visual source of truth. It includes the animated Deploy, AI Ops, AI Proxy, Skills, App Store, and Scale sections.
+
+Live demo: [https://sealos-brain-ui-dinkkees.sealoshzh.site](https://sealos-brain-ui-dinkkees.sealoshzh.site)
 
 ### Local development
 

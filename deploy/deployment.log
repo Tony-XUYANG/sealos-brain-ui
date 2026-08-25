@@ -36,3 +36,9 @@
 [2026-08-25 19:23:00 +08:00] Launchpad network check passed: public HTTPS host matches App URL and Service port 8080.
 [2026-08-25 19:24:00 +08:00] Online Playwright identified a production-only 404 for /assets/glm-logo.png caused by a runtime source override.
 [2026-08-25 19:26:49 +08:00] Removed obsolete runtime logo fallback; local production suite passed 13 tests with 3 conditional skips.
+[2026-08-25 19:40:47 +08:00] Replacement image pushed: ghcr.io/tony-xuyang/sealos-brain-ui:20260825-192649, digest sha256:7ee5a06e7208cfebd1f85089e045a7c8df8c3bc40dbad754c148c61c1b291e65.
+[2026-08-25 19:43:06 +08:00] In-place image rollout completed; new Pod ready with 0 restarts and Service endpoint updated.
+[2026-08-25 19:44:00 +08:00] Public smoke passed: root 200, healthz 200, random missing path 404.
+[2026-08-25 19:44:00 +08:00] Public Playwright passed: 15 tests, 1 viewport-conditional skip; desktop and mobile screenshots captured.
+[2026-08-25 19:50:55 +08:00] Runtime truth passed: 164-second stability window, 0 restarts, 0 active-failure Events, 0 log findings.
+[2026-08-25 19:52:00 +08:00] Frozen-motion reference comparison passed: identical document dimensions; desktop pixel delta 0.448360%, mobile pixel delta 0.420410%.

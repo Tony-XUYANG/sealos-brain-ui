@@ -1,0 +1,19 @@
+{
+  "reference_url": "https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/",
+  "release_url": "https://sealos-brain-ui-dinkkees.sealoshzh.site/",
+  "method": "Full-page screenshots with reduced motion, paused CSS/SVG animation, and loaded fonts",
+  "desktop": {
+    "viewport": "1440x1000",
+    "reference_size": "1440x6190",
+    "release_size": "1440x6190",
+    "changed_pixels_percent": 0.448360,
+    "mean_channel_difference": [0.039494, 0.076142, 0.121438]
+  },
+  "mobile": {
+    "viewport": "390x844",
+    "reference_size": "390x10172",
+    "release_size": "390x10172",
+    "changed_pixels_percent": 0.420410,
+    "mean_channel_difference": [0.035259, 0.069117, 0.111295]
+  }
+}

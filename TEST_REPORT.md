@@ -38,6 +38,12 @@ Date / 日期: `2026-08-25`
 - GHCR `linux/amd64` 镜像构建: 通过，含 provenance 与 SBOM
 - Sealos Template 质量门禁: 通过，56 条一致性规则与全部验证器自测通过
 - Sealos Template API dry-run: HTTP `200`，资源预览为 1 个 Deployment、Service、Ingress 和 App；未创建云端资源
+- Sealos 正式部署: 通过，`sealos-brain-ui-uelrpqvt` 为 `1/1 Ready`，零重启
+- Launchpad 公网检查: 通过，API `200`、HTTPS 域名与 Service `8080` 匹配
+- 线上 Playwright: 通过，`15 passed`，`1 skipped`（桌面项目跳过移动端专属菜单用例）
+- HTTP: 根路径 `200`，`/healthz` 为 `200`，随机缺失路径为 `404`
+- 稳定性窗口: 通过，持续 `164 秒`，零 Pod 替换、零 Ready 变化、零重启、零活跃失败 Event、零日志信号
+- 最终冻结动效视觉对比: 桌面端页面均为 `1440x6190`，差异 `0.448360%`；移动端页面均为 `390x10172`，差异 `0.420410%`；平均通道差异均小于 `0.13`
 
 验收截图：
 
@@ -79,6 +85,12 @@ Date / 日期: `2026-08-25`
 - GHCR `linux/amd64` image build: passed with provenance and SBOM
 - Sealos Template quality gate: passed all 56 consistency rules and validator self-tests
 - Sealos Template API dry-run: HTTP `200`, previewing one Deployment, Service, Ingress, and App; no cloud resource was created
+- Sealos deployment: passed; `sealos-brain-ui-uelrpqvt` is `1/1 Ready` with zero restarts
+- Launchpad public network: passed; API `200`, HTTPS hostname, and Service port `8080` match
+- Public Playwright suite: passed, `15 passed`, `1 skipped` (mobile-only menu case skipped in desktop project)
+- HTTP: root `200`, `/healthz` `200`, random missing path `404`
+- Stability window: passed for `164 seconds` with no Pod replacement, Ready change, restart, active failure Event, or log signal
+- Final frozen-motion visual comparison: both desktop pages are `1440x6190` with `0.448360%` differing pixels; both mobile pages are `390x10172` with `0.420410%` differing pixels; mean channel differences are below `0.13`
 
 Acceptance screenshots:
 

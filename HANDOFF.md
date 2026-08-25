@@ -30,6 +30,7 @@ npm run test:e2e
 - `docs/screenshots/`：桌面端与移动端全页截图
 - `.sealos/template/`：Sealos Template 与图标
 - `deploy/deployment.log`：部署阶段记录
+- 线上地址：`https://sealos-brain-ui-dinkkees.sealoshzh.site`
 
 ### 维护边界
 
@@ -67,6 +68,7 @@ npm run test:e2e
 - `docs/screenshots/`: desktop and mobile full-page screenshots
 - `.sealos/template/`: Sealos Template and icon
 - `deploy/deployment.log`: deployment phase record
+- Live URL: `https://sealos-brain-ui-dinkkees.sealoshzh.site`
 
 ### Maintenance boundary
 

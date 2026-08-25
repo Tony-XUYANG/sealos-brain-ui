@@ -1,0 +1,101 @@
+{
+  "ok": true,
+  "namespace": "ns-fmb1gbvg",
+  "app": "sealos-brain-ui-uelrpqvt",
+  "resources": [
+    {
+      "type": "instances.app.sealos.io",
+      "name": "sealos-brain-ui-uelrpqvt",
+      "ready": 0,
+      "desired": 1,
+      "readiness": "0/1",
+      "containersReady": null,
+      "restartCount": null,
+      "labels": {
+        "cloud.sealos.io/deploy-on-sealos": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/owner-references": "ready"
+      },
+      "ageTimestamp": "2026-08-25T11:21:17Z"
+    },
+    {
+      "type": "apps.app.sealos.io",
+      "name": "sealos-brain-ui-uelrpqvt",
+      "ready": 0,
+      "desired": 1,
+      "readiness": "0/1",
+      "containersReady": null,
+      "restartCount": null,
+      "labels": {
+        "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/deploy-on-sealos": "sealos-brain-ui-uelrpqvt"
+      },
+      "ageTimestamp": "2026-08-25T11:21:17Z"
+    },
+    {
+      "type": "deployment",
+      "name": "sealos-brain-ui-uelrpqvt",
+      "ready": 1,
+      "desired": 1,
+      "readiness": "1/1",
+      "containersReady": null,
+      "restartCount": null,
+      "updated": 1,
+      "available": 1,
+      "labels": {
+        "app": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/deploy-on-sealos": "sealos-brain-ui-uelrpqvt"
+      },
+      "ageTimestamp": "2026-08-25T11:21:17Z"
+    },
+    {
+      "type": "svc",
+      "name": "sealos-brain-ui-uelrpqvt",
+      "ready": 0,
+      "desired": 1,
+      "readiness": "0/1",
+      "containersReady": null,
+      "restartCount": null,
+      "labels": {
+        "app": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/deploy-on-sealos": "sealos-brain-ui-uelrpqvt"
+      },
+      "ageTimestamp": "2026-08-25T11:21:17Z"
+    },
+    {
+      "type": "ingress",
+      "name": "sealos-brain-ui-uelrpqvt",
+      "ready": 0,
+      "desired": 1,
+      "readiness": "0/1",
+      "containersReady": null,
+      "restartCount": null,
+      "labels": {
+        "app": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/app-deploy-manager-domain": "sealos-brain-ui-dinkkees",
+        "cloud.sealos.io/deploy-on-sealos": "sealos-brain-ui-uelrpqvt"
+      },
+      "ageTimestamp": "2026-08-25T11:21:17Z"
+    },
+    {
+      "type": "pod",
+      "name": "sealos-brain-ui-uelrpqvt-d9b49945b-b9w6m",
+      "phase": "Running",
+      "ready": "True",
+      "desired": 1,
+      "readiness": "True",
+      "containersReady": "1/1",
+      "restartCount": 0,
+      "labels": {
+        "app": "sealos-brain-ui-uelrpqvt",
+        "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
+        "pod-template-hash": "d9b49945b"
+      },
+      "ageTimestamp": "2026-08-25T11:42:56Z"
+    }
+  ],
+  "errors": [],
+  "cleanupComplete": false
+}
