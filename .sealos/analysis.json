@@ -31,5 +31,5 @@
   "env_vars": {},
   "has_dockerfile": true,
   "complexity_tier": "L1",
-  "image_ref": null
+  "image_ref": "ghcr.io/tony-xuyang/sealos-brain-ui:20260825-180700"
 }

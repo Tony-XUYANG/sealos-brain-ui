@@ -34,6 +34,10 @@ Date / 日期: `2026-08-25`
 - 控制台与页面运行时错误: `0`
 - 横向溢出与文字溢出: `0`
 - 线上地址部署后将使用同一套测试重新验证
+- GitHub Actions CI: 通过（生产构建与 Playwright）
+- GHCR `linux/amd64` 镜像构建: 通过，含 provenance 与 SBOM
+- Sealos Template 质量门禁: 通过，56 条一致性规则与全部验证器自测通过
+- Sealos Template API dry-run: HTTP `200`，资源预览为 1 个 Deployment、Service、Ingress 和 App；未创建云端资源
 
 验收截图：
 
@@ -71,6 +75,10 @@ Date / 日期: `2026-08-25`
 - Console and page runtime errors: `0`
 - Horizontal and text overflow findings: `0`
 - The same suite will be run again against the public deployment
+- GitHub Actions CI: passed (production build and Playwright)
+- GHCR `linux/amd64` image build: passed with provenance and SBOM
+- Sealos Template quality gate: passed all 56 consistency rules and validator self-tests
+- Sealos Template API dry-run: HTTP `200`, previewing one Deployment, Service, Ingress, and App; no cloud resource was created
 
 Acceptance screenshots:
 

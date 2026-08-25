@@ -1,0 +1,13 @@
+{
+  "outcome": "success",
+  "registry": "ghcr",
+  "build": {
+    "image_name": "sealos-brain-ui",
+    "started_at": "2026-08-25T10:18:47.000Z"
+  },
+  "push": {
+    "remote_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260825-180700",
+    "pushed_at": "2026-08-25T10:19:18.000Z"
+  },
+  "finished_at": "2026-08-25T10:19:18.000Z"
+}
