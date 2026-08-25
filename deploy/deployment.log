@@ -1,0 +1,14 @@
+[2026-08-25 16:53:57 +08:00] === Phase 0: Preflight ===
+[2026-08-25 16:53:57 +08:00] Region: https://hzh.sealos.run
+[2026-08-25 16:53:57 +08:00] Workspace: ns-fmb1gbvg
+[2026-08-25 16:53:57 +08:00] No external resources created; workflow paused for visual fidelity correction.
+[2026-08-25 17:32:00 +08:00] === Delivery Project Preparation ===
+[2026-08-25 17:32:00 +08:00] Created clean project at C:\Users\Administrator\Documents\sealos-brain-ui
+[2026-08-25 17:47:00 +08:00] Production build passed; npm audit found 0 vulnerabilities.
+[2026-08-25 17:58:00 +08:00] Playwright local acceptance passed: 13 passed, 3 conditional skips.
+[2026-08-25 17:59:00 +08:00] Acceptance screenshots generated and manually inspected.
+[2026-08-25 18:03:27 +08:00] === Phase 0.4: Eligibility ===
+[2026-08-25 18:03:27 +08:00] Eligible workload: static_web (STATIC_WEB_BUILD).
+[2026-08-25 18:03:27 +08:00] === Phase 1: Assess ===
+[2026-08-25 18:03:27 +08:00] Deterministic score: 4/12; continue. Static workload requires no database, Secret, or environment variable.
+[2026-08-25 18:03:27 +08:00] Docker daemon unavailable: Docker Desktop WSL bootstrap failed with HCS 0x800705aa. GitHub and template preparation can continue; image build is pending daemon recovery.

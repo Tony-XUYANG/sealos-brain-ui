@@ -1,0 +1,8 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.sealos/*.local.json
+*.log
+!deploy/deployment.log
+*.zip

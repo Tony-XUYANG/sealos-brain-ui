@@ -1,0 +1,22 @@
+{
+  "name": "sealos-brain-ui",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pixel-faithful Sealos Brain homepage UI prototype",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "start": "vite preview --host 0.0.0.0 --port 4173",
+    "test:e2e": "npm run build && playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "@playwright/test": "^1.55.0",
+    "vite": "^7.1.3"
+  }
+}

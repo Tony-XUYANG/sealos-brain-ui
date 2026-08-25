@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-08-25T10:04:02.403Z",
+  "project": {
+    "github_url": "https://github.com/Tony-XUYANG/sealos-brain-ui",
+    "work_dir": "C:\\Users\\Administrator\\Documents\\sealos-brain-ui",
+    "repo_name": "sealos-brain-ui",
+    "branch": "main"
+  },
+  "score": {
+    "total": 4,
+    "verdict": "Fair (deterministic service-oriented model); eligible static web workload",
+    "dimensions": {
+      "statelessness": 1,
+      "config": 0,
+      "scalability": 0,
+      "startup": 1,
+      "observability": 2,
+      "boundaries": 0
+    }
+  },
+  "language": "node",
+  "all_languages": ["node"],
+  "framework": "vite",
+  "package_manager": "npm",
+  "port": 8080,
+  "databases": [],
+  "runtime_version": {
+    "node": "22",
+    "source": "engines"
+  },
+  "env_vars": {},
+  "has_dockerfile": true,
+  "complexity_tier": "L1",
+  "image_ref": null
+}

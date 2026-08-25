@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sealos analyzes real projects from GitHub or your coding agent, builds a production-ready deployment plan, and keeps them running.">
+  <title>Sealos | From finished code to a project that keeps running</title>
+  <link rel="stylesheet" href="fonts.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Sealos home"><img src="assets/sealos-logo.svg" alt="Sealos"><span>Sealos</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#deploy">Deploy</a><a href="#intelligence">AI Ops</a><a href="#ai">AI Proxy</a><a href="#skills">Skills</a><a href="#app-store">App Store</a><a href="#scale">Scale</a><a href="https://sealos.io/docs">Docs</a>
+    </nav>
+    <div class="nav-actions"><a class="signin" href="https://os.sealos.io" target="_blank" rel="noreferrer">Sign in</a><a class="btn btn-mint nav-cta" href="#deploy">Deploy a project <span>↗</span></a><button class="menu-button" aria-label="Open menu" aria-expanded="false">☰</button></div>
+  </header>
+
+  <main id="top">
+    <section id="deploy" class="hero topology-hero grid-bg">
+      <div class="topology-inner reveal">
+        <div class="topology-heading"><h1>From GitHub or your coding agent.<br><span>Deploy any project to the cloud.</span></h1><form id="deploy-form" class="hero-repo-form"><span>◉</span><input id="repo-url" type="url" aria-label="GitHub repository URL" placeholder="Paste a GitHub repository URL"><button type="submit">Deploy <b>→</b></button></form></div>
+
+        <div class="journey-map" data-journey-phase="inputs" aria-label="Animated topology showing GitHub and coding agent workflows converging into one Sealos deployment path">
+          <div class="journey-bar"><span>SEALOS / PROJECT JOURNEY</span><div><i></i><b class="journey-status">RECEIVING PROJECT CONTEXT</b><button class="journey-pause" type="button" aria-label="Pause journey animation">Ⅱ</button></div></div>
+          <div class="journey-canvas topology-v3">
+            <svg class="topology-routes" viewBox="0 0 1200 540" preserveAspectRatio="none" aria-hidden="true">
+              <path class="route route-source" d="M390 135 H690"/>
+              <path class="route route-skills" d="M390 410 H690"/>
+              <path class="route route-live" d="M882 235 V295"/>
+              <circle class="route-dot dot-source" r="5"><animateMotion dur="1.8s" repeatCount="indefinite" path="M390 135 H690"/></circle>
+              <circle class="route-dot dot-skills" r="5"><animateMotion dur="1.8s" begin=".25s" repeatCount="indefinite" path="M390 410 H690"/></circle>
+              <circle class="route-dot dot-live" r="5"><animateMotion dur="1.3s" repeatCount="indefinite" path="M882 235 V295"/></circle>
+            </svg>
+
+            <article class="journey-node compact-source-node">
+              <div class="brand-pair"><div><img src="assets/icons/github.svg" alt="GitHub"><strong>GitHub</strong></div><div><img src="assets/icons/docker.svg" alt="Docker"><strong>Docker</strong></div></div>
+            </article>
+
+            <article class="journey-node compact-skills-node">
+              <div class="agent-brand-row"><div><img src="assets/icons/anthropic.svg" alt="Claude Code"><strong>Claude Code</strong></div><div><img src="assets/icons/openai.svg" alt="Codex"><strong>Codex</strong></div></div>
+              <div class="skills-pill"><span>✦</span> Sealos Skills</div>
+              <em class="agent-state">READY</em>
+            </article>
+
+            <article class="journey-node compact-sealos-node sealos-agent-node">
+              <div class="agent-orbit"><img src="assets/sealos-logo.svg" alt="Sealos"><i></i></div>
+              <strong>Sealos</strong>
+              <div class="agent-steps"><span data-agent-step="analyze">Analyze</span><span data-agent-step="build">Build</span><span data-agent-step="run">Deploy</span></div>
+              <b class="sealos-agent-state">WAITING</b>
+            </article>
+
+            <article class="journey-node compact-production-node production-ready-node">
+              <strong>Production Ready</strong>
+              <div class="production-signals"><span data-ready-unit="domain">Domain<b>✓</b></span><span data-ready-unit="frontend">Frontend<b>✓</b></span><span data-ready-unit="backend">Backend<b>✓</b></span><span data-ready-unit="database">Database<b>✓</b></span></div>
+              <a href="https://app.sealos.run" tabindex="-1"><i></i> app.sealos.run <b>LIVE ↗</b></a>
+              <b class="ready-state">ASSEMBLING</b>
+            </article>
+          </div>
+          <div class="journey-legend"><div><b class="journey-phase-label">01 · INPUT</b><strong class="journey-phase-title">Code in. Production out.</strong></div><div class="journey-phase-track"><i></i></div><span>CODE</span><i>→</i><span>SEALOS</span><i>→</i><span>PRODUCTION</span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="intelligence" class="hero project-hero grid-bg">
+      <div class="hero-inner reveal">
+        <div class="hero-promise ops-promise"><h1>Say what is wrong.<br><span>Sealos fixes it.</span></h1></div>
+
+        <div class="deploy-theater ops-theater" data-stage="network" data-ops-phase="alert" aria-label="Animated AI Ops demonstration resolving production incidents">
+          <div class="theater-bar"><div class="traffic"><i></i><i></i><i></i></div><span>SEALOS / AI OPS CONTROL ROOM</span><div class="theater-clock"><i></i><b class="ops-live-status">INCIDENT DETECTED</b><button class="demo-pause" type="button" aria-label="Pause AI Ops animation">Ⅱ</button></div></div>
+          <div class="stage-nav ops-scenarios" role="tablist" aria-label="AI Ops incident scenarios">
+            <button class="active" type="button" role="tab" aria-selected="true" data-stage-button="network"><b>01</b><span>Network unreachable</span><i></i></button>
+            <button type="button" role="tab" aria-selected="false" data-stage-button="container"><b>02</b><span>Container crash</span><i></i></button>
+            <button type="button" role="tab" aria-selected="false" data-stage-button="config"><b>03</b><span>Invalid config</span><i></i></button>
+            <button type="button" role="tab" aria-selected="false" data-stage-button="logs"><b>04</b><span>Error logs</span><i></i></button>
+          </div>
+
+          <div class="ops-canvas ops-topology-canvas">
+            <svg class="ops-map-routes" viewBox="0 0 1100 430" preserveAspectRatio="none" aria-hidden="true"><path class="ops-map-route route-network" d="M550 150 L165 210"/><path class="ops-map-route route-containers" d="M550 150 L550 210"/><path class="ops-map-route route-database" d="M550 150 L935 210"/><circle class="ops-scan-packet packet-network" r="4"><animateMotion dur="1.5s" repeatCount="indefinite" path="M550 150 L165 210"/></circle><circle class="ops-scan-packet packet-containers" r="4"><animateMotion dur="1.3s" begin=".15s" repeatCount="indefinite" path="M550 150 L550 210"/></circle><circle class="ops-scan-packet packet-database" r="4"><animateMotion dur="1.5s" begin=".3s" repeatCount="indefinite" path="M550 150 L935 210"/></circle></svg>
+
+            <section class="ops-map-agent"><div class="ops-orbit"><img src="assets/sealos-logo.svg" alt=""><i></i><b></b></div><div><span>SEALOS AGENT</span><strong class="ops-root-cause">Scanning production</strong><span class="ops-evidence">Metrics · events · logs · configuration</span></div><em class="ops-agent-state">OBSERVING</em></section>
+
+            <section class="ops-problem-group network-group"><header><span>NET</span><div><strong>Network</strong></div><em class="ops-group-count">1 ISSUE</em></header><div class="ops-problem-list"><article class="ops-problem critical" data-fix-order="1" data-normal-label="Gateway 200 OK" data-normal-state="HEALTHY"><i>!</i><div><strong>Gateway returns 502</strong></div><em>CRITICAL</em><b>✓</b></article></div></section>
+
+            <section class="ops-problem-group container-group"><header><span>CTR</span><div><strong>Containers</strong></div><em class="ops-group-count">3 ISSUES</em></header><div class="ops-problem-list"><article class="ops-problem critical" data-fix-order="2" data-normal-label="Events healthy" data-normal-state="STABLE"><i>!</i><div><strong>Failed events</strong></div><em>FAILING</em><b>✓</b></article><article class="ops-problem critical" data-fix-order="3" data-normal-label="Logs clear" data-normal-state="CLEAR"><i>!</i><div><strong>Error logs</strong></div><em>ERROR</em><b>✓</b></article><article class="ops-problem warning" data-fix-order="4" data-normal-label="Configuration valid" data-normal-state="VALID"><i>!</i><div><strong>Configuration error</strong></div><em>INVALID</em><b>✓</b></article></div></section>
+
+            <section class="ops-problem-group database-group"><header><span>DB</span><div><strong>Database</strong></div><em class="ops-group-count">2 ISSUES</em></header><div class="ops-problem-list"><article class="ops-problem warning" data-fix-order="5" data-normal-label="Backup succeeded" data-normal-state="HEALTHY"><i>!</i><div><strong>Backup failed</strong></div><em>WARNING</em><b>✓</b></article><article class="ops-problem critical" data-fix-order="6" data-normal-label="Disk space healthy" data-normal-state="NORMAL"><i>!</i><div><strong>Disk space exhausted</strong></div><em>CRITICAL</em><b>✓</b></article></div></section>
+
+            <ol class="ops-runbook"><li data-ops-step="alert"><i>01</i><span>Alert</span><b>6 signals</b></li><li data-ops-step="diagnose"><i>02</i><span>Diagnose</span><b>Root causes</b></li><li data-ops-step="repair"><i>03</i><span>Repair</span><b>Safe changes</b></li><li data-ops-step="verify"><i>04</i><span>Verify</span><b>Health checks</b></li></ol>
+            <span class="ops-health">DEGRADED</span><span class="ops-target-state">ISSUES ACTIVE</span><strong class="ops-alert-title">Multiple production failures detected</strong><small class="ops-alert-detail">Automatic alert and predictive warning</small>
+          </div>
+          <div class="ops-footer"><div><b class="caption-kicker">01 · ALERT</b><strong class="caption-title">Production signal crossed its safe threshold.</strong></div><div class="caption-progress"><i></i></div><span>MTTR <b class="ops-mttr">--</b></span><span>CHANGE <b>AUDITED</b></span><span>ROLLBACK <b>READY</b></span></div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="ai" class="section ai-proxy reveal">
+      <div class="ai-heading"><h2>Multi-model injection<br><span>into container env.</span></h2></div>
+      <div class="ai-experience">
+        <aside class="ai-benefits"><article><span>01</span><div><strong>Keys for every model, automatically provisioned</strong></div></article><article><span>02</span><div><strong>Route every request at a lower model cost</strong></div></article><article><span>03</span><div><strong>Runtime variables injected into each container</strong></div></article><article><span>04</span><div><strong>Agent Runtime with automatic multi-model access</strong></div></article></aside>
+        <div class="ai-theater" data-ai-phase="empty" aria-label="Animated AI Proxy configuration injected into two containers and connected to supported model providers">
+          <div class="ai-theater-bar"><span>SEALOS / AI RUNTIME BINDING</span><div><i></i><b class="ai-phase-status">DISCOVERING SERVICES</b><button class="ai-pause" type="button" aria-label="Pause AI connection animation">Ⅱ</button></div></div>
+          <div class="ai-canvas">
+            <svg class="ai-routes" viewBox="0 0 900 460" preserveAspectRatio="none" aria-hidden="true">
+              <path class="ai-route inject-route route-web" d="M360 205 C315 205 315 112 260 112"/><path class="ai-route inject-route route-worker" d="M360 245 C315 245 315 348 260 348"/>
+              <path class="ai-route model-route route-openai" pathLength="1" d="M515 205 C560 205 580 42 650 42"/><path class="ai-route model-route route-claude" pathLength="1" d="M515 215 C570 215 590 105 650 105"/><path class="ai-route model-route route-gemini" pathLength="1" d="M515 225 C580 225 600 168 650 168"/><path class="ai-route model-route route-qwen" pathLength="1" d="M515 230 C585 230 605 231 650 231"/><path class="ai-route model-route route-deepseek" pathLength="1" d="M515 235 C580 235 600 294 650 294"/><path class="ai-route model-route route-glm" pathLength="1" d="M515 245 C570 245 590 357 650 357"/><path class="ai-route model-route route-kimi" pathLength="1" d="M515 255 C560 255 580 420 650 420"/>
+              <circle class="ai-packet packet-web" r="4"><animateMotion dur="1s" repeatCount="indefinite" path="M360 205 C315 205 315 112 260 112"/></circle><circle class="ai-packet packet-worker" r="4"><animateMotion begin=".28s" dur="1s" repeatCount="indefinite" path="M360 245 C315 245 315 348 260 348"/></circle>
+            </svg>
+            <div class="container-stack"><article class="runtime-container web-container"><header><span>WEB</span><div><strong>Frontend container</strong><small>public · port 3000</small></div><em class="container-state">EMPTY</em></header><div class="env-list"><code data-env="url"><b>✓</b> OPENAI_BASE_URL</code><code data-env="key"><b>✓</b> OPENAI_API_KEY</code><code data-env="model"><b>✓</b> AI_MODEL_NAME</code></div><footer><i></i><span class="inject-state">Waiting for binding</span></footer></article><article class="runtime-container worker-container"><header><span>JOB</span><div><strong>Agent worker</strong><small>private · background</small></div><em class="container-state">EMPTY</em></header><div class="env-list"><code data-env="url"><b>✓</b> OPENAI_BASE_URL</code><code data-env="key"><b>✓</b> OPENAI_API_KEY</code><code data-env="model"><b>✓</b> AI_MODEL_NAME</code></div><footer><i></i><span class="inject-state">Waiting for binding</span></footer></article></div>
+            <article class="ai-proxy-core"><div class="proxy-pulse"><span>AI</span><i></i><b></b></div><strong>Sealos AI Proxy</strong><small>OpenAI-compatible gateway</small><footer><i></i><span class="proxy-state">CREATING</span></footer></article>
+            <div class="model-stack"><article class="model-chip openai"><i><img src="assets/icons/openai.svg" alt="OpenAI"></i><div><strong>OpenAI</strong><small>GPT-5 · o3</small></div></article><article class="model-chip claude"><i><img src="assets/icons/anthropic.svg" alt="Claude"></i><div><strong>Claude</strong><small>Opus · Sonnet</small></div></article><article class="model-chip gemini"><i><img src="assets/icons/googlegemini.svg" alt="Gemini"></i><div><strong>Gemini</strong><small>2.5 Pro · Flash</small></div></article><article class="model-chip qwen"><i><img src="assets/icons/qwen.svg" alt="Qwen"></i><div><strong>Qwen</strong><small>Max · Coder</small></div></article><article class="model-chip deepseek"><i><img src="assets/icons/deepseek.svg" alt="DeepSeek"></i><div><strong>DeepSeek</strong><small>V3 · R1</small></div></article><article class="model-chip glm"><i><img src="assets/glm-logo.png" alt="GLM"></i><div><strong>GLM</strong><small>4.5 · Air</small></div></article><article class="model-chip kimi"><i><img src="assets/icons/kimi.svg" alt="Kimi"></i><div><strong>Kimi</strong><small>K2 · Thinking</small></div></article></div>
+          </div>
+          <div class="ai-theater-footer"><div><b class="ai-phase-label">01 · SERVICES FOUND</b><strong class="ai-phase-title">Two containers are ready for model access.</strong></div><div class="ai-progress"><i></i></div><span>KEYS AUTO-PROVISIONED</span><span>RUNTIME ONLY</span><span>7 PROVIDERS</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section skills-page grid-bg reveal">
+      <div class="skills-heading">
+        <h2>Keep coding locally.<br><span>Ship through one Skill.</span></h2>
+      </div>
+
+      <div class="skills-install" role="group" aria-label="Install Sealos Skills">
+        <div><i>›_</i><code>npx plugins add https://github.com/labring/sealos-skills</code></div>
+        <button class="skills-copy" type="button" data-command="npx plugins add https://github.com/labring/sealos-skills" aria-label="Copy Sealos Skills install command"><span aria-hidden="true">□</span><b>Copy</b></button>
+      </div>
+
+      <div class="skills-theater" data-skills-phase="analyze" aria-label="Animated Sealos Skills workflow from local AI coding agents to a deployed Sealos application">
+        <div class="skills-theater-bar"><span>SEALOS / LOCAL AGENT DEPLOYMENT PIPELINE</span><div><i></i><b class="skills-live-status">ANALYZING PROJECT</b><button class="skills-pause" type="button" aria-label="Pause Skills workflow animation">Ⅱ</button></div></div>
+        <div class="skills-canvas">
+          <svg class="skills-routes" viewBox="0 0 1100 480" preserveAspectRatio="none" aria-hidden="true">
+            <path class="skills-route route-codex" d="M210 82 L410 190"/><path class="skills-route route-claude" d="M210 177 L410 215"/><path class="skills-route route-cursor" d="M210 272 L410 240"/><path class="skills-route route-more" d="M210 367 L410 265"/>
+            <path class="skills-route route-analyze" d="M600 205 L735 82"/><path class="skills-route route-build" d="M600 220 L735 177"/><path class="skills-route route-config" d="M600 235 L735 272"/><path class="skills-route route-deploy" d="M600 250 L735 367"/>
+            <circle class="skills-packet" r="4"><animateMotion dur="1.65s" repeatCount="indefinite" path="M210 82 L410 190"/></circle><circle class="skills-packet packet-two" r="4"><animateMotion begin=".25s" dur="1.65s" repeatCount="indefinite" path="M210 177 L410 215"/></circle><circle class="skills-packet packet-three" r="4"><animateMotion begin=".5s" dur="1.65s" repeatCount="indefinite" path="M210 272 L410 240"/></circle>
+          </svg>
+
+          <div class="skills-agents">
+            <article><i>›_</i><div><strong>Codex</strong><small>Terminal · IDE · Cloud</small></div><b>CONNECTED</b></article>
+            <article><i>AI</i><div><strong>Claude Code</strong><small>Local coding agent</small></div><b>CONNECTED</b></article>
+            <article><i>C</i><div><strong>Cursor</strong><small>Vibe coding workspace</small></div><b>CONNECTED</b></article>
+            <article><i>+</i><div><strong>Your agent</strong><small>Any Skills-compatible client</small></div><b>READY</b></article>
+          </div>
+
+          <article class="skills-core">
+            <div class="skills-core-orbit"><img src="assets/sealos-logo.svg" alt=""><i></i><b></b></div>
+            <span>SEALOS SKILLS</span><strong class="skills-core-title">Reading project graph</strong><small class="skills-core-detail">package.json · Dockerfile · source</small>
+            <em class="skills-core-state">RUNNING</em>
+          </article>
+
+          <div class="skills-stages">
+            <article data-skill-stage="analyze"><i>01</i><div><strong>Analyze dependencies</strong><small>Runtime · services · data</small></div><b>✓</b></article>
+            <article data-skill-stage="build"><i>02</i><div><strong>Build source code</strong><small>Image · architecture · port</small></div><b>✓</b></article>
+            <article data-skill-stage="config"><i>03</i><div><strong>Generate configuration</strong><small>Dockerfile · Sealos template</small></div><b>✓</b></article>
+            <article data-skill-stage="deploy"><i>04</i><div><strong>Deploy to Sealos</strong><small>Rollout · health · domain</small></div><b>✓</b></article>
+          </div>
+
+          <div class="skills-result"><i>✓</i><div><span>PRODUCTION URL</span><strong>https://app.sealos.run</strong></div><b>LIVE</b></div>
+        </div>
+        <div class="skills-theater-footer"><div><b class="skills-phase-label">01 · PROJECT ANALYSIS</b><strong class="skills-phase-title">Skills maps the application and every dependency.</strong></div><div class="skills-progress"><i></i></div><span>LOCAL-FIRST</span><span>AGENT-NATIVE</span><span>SEALOS READY</span></div>
+      </div>
+    </section>
+
+    <section id="app-store" class="section app-store-page grid-bg reveal" aria-labelledby="app-store-title">
+      <div class="store-heading">
+        <h2 id="app-store-title">Find it. Ask for it.<br><span>Run it in one click.</span></h2>
+      </div>
+
+      <div class="store-experience" data-store-phase="discover">
+        <section class="store-catalog" aria-label="One-click App Store catalog">
+          <header><div><span>01</span><strong>Choose from the App Store</strong></div><b>1,000+ APPS</b></header>
+          <div class="store-grid">
+            <button class="store-app active" type="button" data-store-app="Minecraft" data-store-icon="MC"><i>MC</i><strong>Minecraft</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="n8n" data-store-icon="n8n"><i><img src="assets/icons/n8n.svg" alt=""></i><strong>n8n</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="Open WebUI" data-store-icon="OW"><i>OW</i><strong>Open WebUI</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="OpenClaw" data-store-icon="OC"><i>OC</i><strong>OpenClaw</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="WordPress" data-store-icon="WP"><i><img src="assets/icons/wordpress.svg" alt=""></i><strong>WordPress</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="Excalidraw" data-store-icon="EX"><i><img src="assets/icons/excalidraw.svg" alt=""></i><strong>Excalidraw</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="Supabase" data-store-icon="SB"><i><img src="assets/icons/supabase.svg" alt=""></i><strong>Supabase</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="AppFlowy" data-store-icon="AF"><i>AF</i><strong>AppFlowy</strong><span>Deploy <b>→</b></span></button>
+            <button class="store-app" type="button" data-store-app="Flarum" data-store-icon="FL"><i>FL</i><strong>Flarum</strong><span>Deploy <b>→</b></span></button>
+          </div>
+          <footer><span><i></i> CURATED · VERSIONED · PRODUCTION READY</span><a href="https://template.sealos.io/">Explore all apps ↗</a></footer>
+        </section>
+
+        <section class="store-agent" aria-label="Deploy applications by asking Sealos Agent">
+          <header><div><span>02</span><strong>Or tell the Agent what to run</strong></div><b class="store-agent-state">LISTENING</b></header>
+          <form class="store-agent-form">
+            <i>›_</i><input type="text" value="Deploy a Minecraft server" aria-label="Describe an app to deploy"><button type="submit">Deploy <b>→</b></button>
+          </form>
+          <div class="store-agent-workflow">
+            <div class="store-agent-core"><div><img src="assets/sealos-logo.svg" alt=""><i></i><b></b></div><span>SEALOS AGENT</span><strong class="store-agent-title">Searching App Store</strong></div>
+            <ol>
+              <li data-store-step="search"><i>01</i><div><strong>Search catalog</strong><span>Finding the best maintained template</span></div><b>✓</b></li>
+              <li data-store-step="match"><i>02</i><div><strong>Match requirements</strong><span>Image · storage · public port</span></div><b>✓</b></li>
+              <li data-store-step="configure"><i>03</i><div><strong>Configure deployment</strong><span>Resources · domain · health check</span></div><b>✓</b></li>
+              <li data-store-step="deploy"><i>04</i><div><strong>Deploy to Sealos</strong><span>Rollout and verify the application</span></div><b>✓</b></li>
+            </ol>
+          </div>
+          <div class="store-agent-result"><i>✓</i><div><span>APPLICATION LIVE</span><strong class="store-result-name">Minecraft is ready</strong></div><a href="https://app.sealos.run">OPEN ↗</a></div>
+        </section>
+      </div>
+    </section>
+
+    <section id="scale" class="scale-page grid-bg reveal" aria-labelledby="scale-title">
+      <div class="scale-inner">
+        <div class="scale-heading">
+          <h2 id="scale-title">Built in the open.<br><span>Running everywhere.</span></h2>
+        </div>
+
+        <div class="scale-grid">
+          <article class="scale-stat primary-stat">
+            <div class="scale-stat-top"><span>01 / USERS</span><i>GLOBAL</i></div>
+            <strong><span data-count="300000">0</span><b>+</b></strong>
+            <h3>Sealos users</h3>
+            <p>Developers and teams building, deploying and operating applications on Sealos.</p>
+            <div class="scale-meter"><i></i></div>
+          </article>
+          <article class="scale-stat">
+            <div class="scale-stat-top"><span>02 / OPEN SOURCE</span><i>GITHUB</i></div>
+            <strong><span data-count="18000">0</span><b>+</b></strong>
+            <h3>GitHub stars</h3>
+            <p>A growing open-source community shaping the cloud operating system.</p>
+            <div class="scale-meter"><i></i></div>
+          </article>
+          <article class="scale-stat">
+            <div class="scale-stat-top"><span>03 / PRODUCTION</span><i>ACTIVE</i></div>
+            <strong><span data-count="50000">0</span><b>+</b></strong>
+            <h3>Active app instances</h3>
+            <p>Applications, databases and AI workloads running as live instances.</p>
+            <div class="scale-meter"><i></i></div>
+          </article>
+          <article class="scale-stat">
+            <div class="scale-stat-top"><span>04 / APP STORE</span><i>READY TO RUN</i></div>
+            <strong><span data-count="1000">0</span><b>+</b></strong>
+            <h3>Applications</h3>
+            <p>One-click application templates available across the Sealos App Store.</p>
+            <div class="scale-meter"><i></i></div>
+          </article>
+        </div>
+
+        <div class="scale-footer"><span><i></i> OPEN-SOURCE CLOUD OS</span><b>300K USERS</b><i>×</i><b>50K ACTIVE INSTANCES</b><i>×</i><b>1K APPS</b><em>THE NETWORK KEEPS GROWING</em></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer><div class="footer-top"><div><a class="brand" href="#top"><img src="assets/sealos-logo.svg" alt="Sealos"><span>Sealos</span></a><p>From finished code to a real project that keeps running.</p><span class="operational"><i></i> All systems operational</span></div><div class="footer-links"><div><strong>PRODUCT</strong><a href="#deploy">Deploy</a><a href="#intelligence">AI Ops</a><a href="#ai">AI Proxy</a><a href="#skills">Skills</a><a href="#app-store">App Store</a><a href="#scale">Scale</a></div><div><strong>RESOURCES</strong><a href="https://sealos.io/docs">Documentation</a><a href="https://sealos.io/pricing">Pricing</a><a href="https://github.com/labring/sealos">GitHub</a></div><div><strong>TRUST</strong><a href="https://neonstatus.com/">Service status</a><a href="https://sealos.io/contact">Support</a><a href="#">Privacy</a></div></div></div><div class="footer-bottom"><span>© 2026 Sealos. All rights reserved.</span><div><a href="https://github.com/labring/sealos">GitHub</a><a href="https://discord.gg/wdUn538zVP">Discord</a><a href="https://x.com/sealos_io">X</a></div></div></footer>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
