@@ -12,3 +12,10 @@
 [2026-08-25 18:03:27 +08:00] === Phase 1: Assess ===
 [2026-08-25 18:03:27 +08:00] Deterministic score: 4/12; continue. Static workload requires no database, Secret, or environment variable.
 [2026-08-25 18:03:27 +08:00] Docker daemon unavailable: Docker Desktop WSL bootstrap failed with HCS 0x800705aa. GitHub and template preparation can continue; image build is pending daemon recovery.
+[2026-08-25 18:17:06 +08:00] === Phase 0.5: Template Fast Path ===
+[2026-08-25 18:17:06 +08:00] No configured template match; continue with project-owned template.
+[2026-08-25 18:17:07 +08:00] === Phase 2: Detect Image ===
+[2026-08-25 18:17:38 +08:00] No existing container image found.
+[2026-08-25 18:18:00 +08:00] === Phase 3: Dockerfile ===
+[2026-08-25 18:18:00 +08:00] Production multi-stage Dockerfile ready: Node 22.23.2 build, non-root Nginx 1.27.5 runtime, port 8080.
+[2026-08-25 18:18:00 +08:00] Local build path blocked by Docker Desktop WSL HCS 0x800705aa; selected equivalent GitHub Actions buildx fallback for GHCR.

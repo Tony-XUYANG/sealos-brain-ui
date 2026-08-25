@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-25T10:17:06.547Z",
+  "matched": false,
+  "materialized": false,
+  "repo": null,
+  "template": null,
+  "args": {},
+  "source": "none",
+  "template_path": null,
+  "reason": "No configured Sealos template matched tony-xuyang/sealos-brain-ui."
+}

@@ -37,6 +37,8 @@ npm run test:e2e
 
 更新 UI 后先执行 `npm run test:e2e`，再构建新镜像并更新 Sealos Deployment。回滚使用上一个 GHCR 镜像标签或 Kubernetes rollout history，不要覆盖旧镜像标签。
 
+本地 Docker 不可用时，可在 GitHub Actions 中手动运行 `Release container image`，输入新的不可变时间戳标签。
+
 ## English
 
 ### Recipient quick verification
@@ -71,3 +73,5 @@ npm run test:e2e
 This page is an interactive frontend prototype. Project Journey, AI Ops, AI Proxy, Skills, and App Store flows are browser state machines in `script.js`; they do not create real cloud resources or call production business APIs.
 
 After a UI update, run `npm run test:e2e` before building a new image and updating the Sealos Deployment. Roll back to a previous immutable GHCR tag or Kubernetes rollout revision; never overwrite an existing image tag.
+
+When local Docker is unavailable, manually run `Release container image` in GitHub Actions with a new immutable timestamp tag.
