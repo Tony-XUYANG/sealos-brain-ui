@@ -16,6 +16,9 @@ function watchRuntimeErrors(page) {
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(`console: ${message.text()}`);
   });
+  page.on('response', (response) => {
+    if (response.status() >= 400) errors.push(`http ${response.status()}: ${response.url()}`);
+  });
   return errors;
 }
 

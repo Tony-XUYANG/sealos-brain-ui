@@ -225,13 +225,6 @@ document.querySelector('.ops-command-form')?.addEventListener('submit', (event) 
   setStage(stages[currentStage]);
 });
 
-const modelLogoFallbacks = { Qwen: 'assets/icons/qwen.svg', DeepSeek: 'assets/icons/deepseek.svg', GLM: 'assets/glm-logo.png', Kimi: 'assets/icons/kimi.svg' };
-document.querySelectorAll('.model-chip img').forEach((image) => {
-  const fallback = modelLogoFallbacks[image.alt];
-  if (fallback) image.addEventListener('error', () => { if (image.src !== fallback) image.src = fallback; }, { once: true });
-});
-const localGlmLogo = document.querySelector('.model-chip.glm img');
-if (localGlmLogo) localGlmLogo.src = 'assets/glm-logo.png';
 const aiTheater = document.querySelector('.ai-theater');
 const aiPauseButton = document.querySelector('.ai-pause');
 const aiPhaseStatus = document.querySelector('.ai-phase-status');

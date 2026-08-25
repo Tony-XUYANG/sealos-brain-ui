@@ -26,3 +26,13 @@
 [2026-08-25 18:19:20 +08:00] Template quality gate passed: 56 consistency rules, 206 validator tests, 48 converter tests, 5 MUST coverage tests.
 [2026-08-25 18:22:00 +08:00] Template API dry-run passed with HTTP 200.
 [2026-08-25 18:22:00 +08:00] Preview: 1 Deployment (200m CPU, 256Mi memory), 1 Service, 1 Ingress, 1 App; no cloud resource created.
+[2026-08-25 18:31:00 +08:00] User confirmed deployment and public GHCR visibility.
+[2026-08-25 18:33:00 +08:00] GHCR package visibility changed to public; source repository remains private.
+[2026-08-25 18:33:00 +08:00] Anonymous manifest pull passed: linux/amd64, digest sha256:b8751c8d0341eed763b173f06575312c5baeda5005fd48c472716cbe7f581549.
+[2026-08-25 19:21:17 +08:00] === Phase 6: Deploy ===
+[2026-08-25 19:21:17 +08:00] Template API created instance sealos-brain-ui-uelrpqvt with HTTP 201.
+[2026-08-25 19:21:35 +08:00] Deployment ready 1/1; Pod running with 0 restarts; Service endpoint populated on port 8080.
+[2026-08-25 19:22:40 +08:00] Runtime baseline passed with no Warning Events or log findings.
+[2026-08-25 19:23:00 +08:00] Launchpad network check passed: public HTTPS host matches App URL and Service port 8080.
+[2026-08-25 19:24:00 +08:00] Online Playwright identified a production-only 404 for /assets/glm-logo.png caused by a runtime source override.
+[2026-08-25 19:26:49 +08:00] Removed obsolete runtime logo fallback; local production suite passed 13 tests with 3 conditional skips.
