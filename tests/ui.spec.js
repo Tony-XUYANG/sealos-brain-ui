@@ -120,7 +120,11 @@ test('deploy form runs the agent workflow', async ({ page }) => {
   await button.click();
   await expect(map).toHaveAttribute('data-journey-phase', 'analyze');
   await expect(button).toContainText('Deploying');
-  await expect(map).toHaveAttribute('data-journey-phase', 'ready', { timeout: 4_000 });
+  await expect(map).toHaveAttribute('data-journey-phase', 'domain', { timeout: 4_000 });
+  await expect(page.locator('[data-ready-unit="domain"]')).toHaveClass(/ready/);
+  await expect(page.locator('[data-ready-unit="frontend"]')).not.toHaveClass(/ready/);
+  await expect(map).toHaveAttribute('data-journey-phase', 'ready', { timeout: 6_000 });
+  await expect(page.locator('[data-ready-unit].ready')).toHaveCount(4);
   await expect(button).toContainText('Deploy');
 });
 
@@ -131,6 +135,21 @@ test('issue categories update the highlighted system', async ({ page }) => {
   await expect(theater).toHaveAttribute('data-stage', 'network');
   await expect(network).toHaveAttribute('aria-selected', 'true');
   await expect(page.locator('.network-card')).toHaveClass(/active/);
+  await expect(theater).toHaveAttribute('data-health-phase', 'error');
+  await expect(page.locator('[data-health-item="gateway"] [data-health-label]')).toHaveText('Gateway Unreachable');
+});
+
+test('Sealos Agent repairs each unhealthy service before all systems become healthy', async ({ page }) => {
+  const theater = page.locator('.ops-theater');
+  await expect(theater).toHaveAttribute('data-health-phase', 'error');
+  await expect(page.locator('[data-health-item] .warning-icon')).toHaveCount(6);
+
+  await expect(theater).toHaveAttribute('data-health-phase', 'resolving', { timeout: 3_000 });
+  await expect(page.locator('[data-health-item] .spinner-icon')).toHaveCount(1);
+
+  await expect(theater).toHaveAttribute('data-health-phase', 'healthy', { timeout: 8_000 });
+  await expect(page.locator('[data-health-item] .check-icon')).toHaveCount(6);
+  await expect(page.locator('[data-health-item="disk"] [data-health-label]')).toHaveText('Disk Space Healthy');
 });
 
 test('AI proxy and Skills expose the animated production graph', async ({ page }) => {
@@ -142,6 +161,66 @@ test('AI proxy and Skills expose the animated production graph', async ({ page }
   const copy = page.locator('.copy-button');
   await copy.click();
   await expect(copy).toHaveAttribute('aria-label', 'Copied');
+});
+
+test('deployment and AI routes terminate at exact card-center connection points', async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.startsWith('desktop'), 'Desktop geometry baseline');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.reload();
+
+  const routeGeometry = await page.evaluate(() => {
+    const relativeBox = (element, container) => {
+      const box = element.getBoundingClientRect();
+      const parent = container.getBoundingClientRect();
+      return {
+        left: box.left - parent.left,
+        right: box.right - parent.left,
+        centerY: box.top - parent.top + box.height / 2
+      };
+    };
+    const journeyMap = document.querySelector('.journey-map');
+    const aiMap = document.querySelector('.ai-map');
+    return {
+      journeyPaths: [...document.querySelectorAll('.journey-routes > path')].map((path) => path.getAttribute('d')),
+      cloud: relativeBox(document.querySelector('.cloud-card'), journeyMap),
+      aiViewBox: document.querySelector('.ai-routes').getAttribute('viewBox'),
+      aiPaths: [...document.querySelectorAll('.ai-routes > path')].map((path) => path.getAttribute('d')),
+      inputs: [...document.querySelectorAll('.env-card')].map((card) => relativeBox(card, aiMap)),
+      proxy: relativeBox(document.querySelector('.proxy-card'), aiMap),
+      providers: [...document.querySelectorAll('.provider')].map((provider) => relativeBox(provider, aiMap))
+    };
+  });
+
+  expect(routeGeometry.journeyPaths).toContain('M188 270 H896');
+  expect(routeGeometry.cloud.left).toBe(896);
+  expect(routeGeometry.aiViewBox).toBe('0 0 1196 585');
+  expect(routeGeometry.aiPaths).toEqual([
+    'M386 133 H447 V276 H504',
+    'M386 445 H447 V276 H504',
+    'M692 276 H785',
+    'M785 36 V456',
+    'M785 36 H1132',
+    'M785 106 H956',
+    'M785 176 H1132',
+    'M785 246 H956',
+    'M785 316 H1132',
+    'M785 386 H956',
+    'M785 456 H1132'
+  ]);
+  expect(routeGeometry.inputs).toEqual([
+    { left: 0, right: 386, centerY: 133 },
+    { left: 0, right: 386, centerY: 445 }
+  ]);
+  expect(routeGeometry.proxy).toEqual({ left: 504, right: 692, centerY: 275.5 });
+  expect(routeGeometry.providers).toEqual([
+    { left: 1132, right: 1196, centerY: 36 },
+    { left: 956, right: 1020, centerY: 106 },
+    { left: 1132, right: 1196, centerY: 176 },
+    { left: 956, right: 1020, centerY: 246 },
+    { left: 1132, right: 1196, centerY: 316 },
+    { left: 956, right: 1020, centerY: 386 },
+    { left: 1132, right: 1196, centerY: 456 }
+  ]);
 });
 
 test('App Store cards and deploy command update state', async ({ page }) => {

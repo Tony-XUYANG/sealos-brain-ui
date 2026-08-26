@@ -50,9 +50,9 @@
           <path d="M188 88 H390"></path>
           <path d="M188 270 H390"></path>
           <path d="M734 88 H896"></path>
-          <path d="M188 270 H734"></path>
+          <path d="M188 270 H896"></path>
           <circle class="route-packet packet-a" r="4"><animateMotion dur="2s" repeatCount="indefinite" path="M188 88 H390"></animateMotion></circle>
-          <circle class="route-packet packet-b" r="4"><animateMotion dur="2.3s" begin=".5s" repeatCount="indefinite" path="M188 270 H734"></animateMotion></circle>
+          <circle class="route-packet packet-b" r="4"><animateMotion dur="2.3s" begin=".5s" repeatCount="indefinite" path="M188 270 H896"></animateMotion></circle>
           <circle class="route-packet packet-c" r="4"><animateMotion dur="1.8s" begin=".2s" repeatCount="indefinite" path="M734 88 H896"></animateMotion></circle>
         </svg>
 
@@ -85,10 +85,10 @@
         <article class="cloud-card">
           <header><i></i><strong>Sealos Cloud</strong></header>
           <ul>
-            <li class="ready"><span class="check-icon"></span>Domain</li>
-            <li class="ready"><span class="check-icon"></span>Frontend</li>
-            <li class="ready"><span class="check-icon"></span>Backend</li>
-            <li><span class="check-icon"></span>Database</li>
+            <li class="ready" data-ready-unit="domain"><span class="check-icon"></span>Domain</li>
+            <li class="ready" data-ready-unit="frontend"><span class="check-icon"></span>Frontend</li>
+            <li class="ready" data-ready-unit="backend"><span class="check-icon"></span>Backend</li>
+            <li class="ready" data-ready-unit="database"><span class="check-icon"></span>Database</li>
           </ul>
         </article>
       </div>
@@ -99,7 +99,7 @@
     <section id="intelligence" class="issue-section dotted-section">
       <div class="section-shell">
         <h2>Spot the issue. Sealos fixes it.</h2>
-        <div class="ops-theater" data-stage="container">
+        <div class="ops-theater" data-stage="container" data-health-phase="error" data-repair-step="0">
           <div class="skills-diagnostic">
             <strong><img src="assets/sealos-logo.svg" alt="">Sealos Skills</strong>
             <div class="scenario-tabs" role="tablist" aria-label="Issue categories">
@@ -119,22 +119,36 @@
 
           <div class="issue-grid">
             <article class="issue-card network-card" data-issue="network">
-              <header><i class="status-dot blue"></i><strong>Network</strong></header>
-              <ul><li><span class="check-icon"></span>Gateway 200 OK</li></ul>
+              <header><i class="status-dot red"></i><strong>Network</strong></header>
+              <ul>
+                <li data-health-item="gateway" data-error-label="Gateway Unreachable" data-resolving-label="Checking Gateway" data-healthy-label="Gateway 200 OK">
+                  <span class="warning-icon danger"></span><span data-health-label>Gateway Unreachable</span>
+                </li>
+              </ul>
             </article>
             <article class="issue-card container-card active" data-issue="container">
               <header><i class="status-dot red"></i><strong>Containers</strong></header>
               <ul>
-                <li><span class="check-icon"></span>Events Healthy</li>
-                <li><span class="warning-icon danger"></span>Logs Clear</li>
-                <li><span class="warning-icon caution"></span>Configuration Error</li>
+                <li data-health-item="events" data-error-label="Events Unhealthy" data-resolving-label="Inspecting Events" data-healthy-label="Events Healthy">
+                  <span class="warning-icon danger"></span><span data-health-label>Events Unhealthy</span>
+                </li>
+                <li data-health-item="logs" data-error-label="CrashLoopBackOff" data-resolving-label="Reading Logs" data-healthy-label="Logs Clear">
+                  <span class="warning-icon danger"></span><span data-health-label>CrashLoopBackOff</span>
+                </li>
+                <li data-health-item="config" data-error-label="Invalid Configuration" data-resolving-label="Repairing Config" data-healthy-label="Configuration Healthy">
+                  <span class="warning-icon caution"></span><span data-health-label>Invalid Configuration</span>
+                </li>
               </ul>
             </article>
             <article class="issue-card database-card" data-issue="database">
               <header><i class="status-dot muted"></i><strong>Database</strong></header>
               <ul>
-                <li><span class="spinner-icon"></span>Backup Succeeded</li>
-                <li><span class="spinner-icon"></span>Disk Space Healthy</li>
+                <li data-health-item="backup" data-error-label="Backup Failed" data-resolving-label="Validating Backup" data-healthy-label="Backup Succeeded">
+                  <span class="warning-icon caution"></span><span data-health-label>Backup Failed</span>
+                </li>
+                <li data-health-item="disk" data-error-label="Disk Space Critical" data-resolving-label="Reclaiming Space" data-healthy-label="Disk Space Healthy">
+                  <span class="warning-icon danger"></span><span data-health-label>Disk Space Critical</span>
+                </li>
               </ul>
             </article>
           </div>
@@ -146,19 +160,21 @@
       <div class="section-shell">
         <h2>Multi-model injection into<br>container env.</h2>
         <div class="ai-map" data-ai-phase="complete">
-          <svg class="ai-routes" viewBox="0 0 1196 640" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M385 140 H447 V220 H515"></path>
-            <path d="M385 398 H447 V220 H515"></path>
-            <path d="M703 220 H785 V45 H1120"></path>
-            <path d="M703 220 H785 V115 H1000"></path>
-            <path d="M703 220 H785 V185 H1120"></path>
-            <path d="M703 220 H785 V255 H1000"></path>
-            <path d="M703 220 H785 V325 H1120"></path>
-            <path d="M703 220 H785 V395 H1000"></path>
-            <path d="M703 220 H785 V465 H1120"></path>
-            <circle class="route-packet ai-packet one" r="4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M385 140 H447 V220 H515"></animateMotion></circle>
-            <circle class="route-packet ai-packet two" r="4"><animateMotion dur="2.5s" begin=".6s" repeatCount="indefinite" path="M385 398 H447 V220 H515"></animateMotion></circle>
-            <circle class="route-packet ai-packet three" r="4"><animateMotion dur="2.8s" begin=".25s" repeatCount="indefinite" path="M703 220 H785 V395 H1000"></animateMotion></circle>
+          <svg class="ai-routes" viewBox="0 0 1196 585" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M386 133 H447 V276 H504"></path>
+            <path d="M386 445 H447 V276 H504"></path>
+            <path d="M692 276 H785"></path>
+            <path d="M785 36 V456"></path>
+            <path d="M785 36 H1132"></path>
+            <path d="M785 106 H956"></path>
+            <path d="M785 176 H1132"></path>
+            <path d="M785 246 H956"></path>
+            <path d="M785 316 H1132"></path>
+            <path d="M785 386 H956"></path>
+            <path d="M785 456 H1132"></path>
+            <circle class="route-packet ai-packet one" r="4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M386 133 H447 V276 H504"></animateMotion></circle>
+            <circle class="route-packet ai-packet two" r="4"><animateMotion dur="2.5s" begin=".6s" repeatCount="indefinite" path="M386 445 H447 V276 H504"></animateMotion></circle>
+            <circle class="route-packet ai-packet three" r="4"><animateMotion dur="2.8s" begin=".25s" repeatCount="indefinite" path="M692 276 H785 V386 H956"></animateMotion></circle>
           </svg>
 
           <div class="container-stack">

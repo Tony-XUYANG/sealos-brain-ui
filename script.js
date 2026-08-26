@@ -18,43 +18,152 @@ document.querySelectorAll('.desktop-nav a').forEach((link) => {
 });
 
 const journeyMap = document.querySelector('.journey-map');
-const journeyPhases = ['analyze', 'build', 'ready'];
-let journeyIndex = 2;
+const journeyPhases = ['analyze', 'build', 'deploy', 'domain', 'frontend', 'backend', 'database', 'ready'];
+const journeyDelays = {
+  analyze: 700,
+  build: 650,
+  deploy: 650,
+  domain: 500,
+  frontend: 500,
+  backend: 500,
+  database: 500,
+  ready: 2400
+};
+const deploymentUnits = [...document.querySelectorAll('[data-ready-unit]')];
+const agentSteps = [...document.querySelectorAll('[data-step]')];
+let journeyIndex = journeyPhases.length - 1;
 let journeyTimer;
 
 function setJourneyPhase(phase) {
   if (!journeyMap) return;
   journeyIndex = Math.max(0, journeyPhases.indexOf(phase));
   journeyMap.dataset.journeyPhase = journeyPhases[journeyIndex];
+
+  const deploymentPhaseIndex = journeyPhases.indexOf(phase);
+  deploymentUnits.forEach((unit) => {
+    const unitPhaseIndex = journeyPhases.indexOf(unit.dataset.readyUnit);
+    unit.classList.toggle('ready', phase === 'ready' || deploymentPhaseIndex >= unitPhaseIndex);
+  });
+
+  const activeStep = phase === 'analyze' ? 'analyze' : phase === 'build' ? 'build' : 'deploy';
+  const stepOrder = ['analyze', 'build', 'deploy'];
+  const activeStepIndex = stepOrder.indexOf(activeStep);
+  agentSteps.forEach((step) => {
+    const stepIndex = stepOrder.indexOf(step.dataset.step);
+    step.classList.toggle('done', stepIndex <= activeStepIndex);
+    step.classList.toggle('current', step.dataset.step === activeStep && phase !== 'ready');
+  });
 }
 
-function scheduleJourney() {
+function scheduleJourney(delay = journeyDelays[journeyPhases[journeyIndex]]) {
   window.clearTimeout(journeyTimer);
   if (reducedMotion.matches || document.hidden) return;
   journeyTimer = window.setTimeout(() => {
-    setJourneyPhase(journeyPhases[(journeyIndex + 1) % journeyPhases.length]);
+    const nextPhase = journeyPhases[(journeyIndex + 1) % journeyPhases.length];
+    setJourneyPhase(nextPhase);
+    if (nextPhase === 'ready') {
+      const label = deployForm?.querySelector('.button-label');
+      if (label) label.textContent = 'Deploy';
+    }
     scheduleJourney();
-  }, 2400);
+  }, delay);
 }
 
 const deployForm = document.querySelector('#deploy-form');
 deployForm?.addEventListener('submit', (event) => {
   event.preventDefault();
   const label = deployForm.querySelector('.button-label');
-  const original = label.textContent;
   label.textContent = 'Deploying';
   setJourneyPhase('analyze');
-  window.clearTimeout(journeyTimer);
-  window.setTimeout(() => setJourneyPhase('build'), reducedMotion.matches ? 0 : 700);
-  window.setTimeout(() => {
+  if (reducedMotion.matches) {
     setJourneyPhase('ready');
-    label.textContent = original;
-    scheduleJourney();
-  }, reducedMotion.matches ? 0 : 1500);
+    label.textContent = 'Deploy';
+    return;
+  }
+  scheduleJourney();
 });
 
 const opsTheater = document.querySelector('.ops-theater');
 const stageButtons = [...document.querySelectorAll('[data-stage-button]')];
+const healthItems = [...document.querySelectorAll('[data-health-item]')];
+let healthTimer;
+let repairStep = 0;
+
+function updateHealthItem(item, state) {
+  const icon = item.querySelector(':scope > span:first-child');
+  const label = item.querySelector('[data-health-label]');
+  if (!icon || !label) return;
+
+  label.textContent = item.dataset[`${state}Label`];
+  icon.className = state === 'healthy'
+    ? 'check-icon'
+    : state === 'resolving'
+      ? 'spinner-icon'
+      : `warning-icon ${item.dataset.healthItem === 'config' || item.dataset.healthItem === 'backup' ? 'caution' : 'danger'}`;
+}
+
+function setHealthPhase(phase, step = 0) {
+  if (!opsTheater) return;
+  opsTheater.dataset.healthPhase = phase;
+  opsTheater.dataset.repairStep = String(step);
+
+  healthItems.forEach((item, index) => {
+    const state = phase === 'healthy'
+      ? 'healthy'
+      : phase === 'resolving' && index < step
+        ? 'healthy'
+        : phase === 'resolving' && index === step
+          ? 'resolving'
+          : 'error';
+    updateHealthItem(item, state);
+  });
+
+  document.querySelectorAll('.issue-card').forEach((card) => {
+    const items = [...card.querySelectorAll('[data-health-item]')];
+    const itemIndexes = items.map((item) => healthItems.indexOf(item));
+    const isHealthy = phase === 'healthy' || itemIndexes.every((index) => index < step);
+    const isRepairing = phase === 'resolving' && itemIndexes.includes(step);
+    card.classList.toggle('is-healthy', isHealthy);
+    card.classList.toggle('is-repairing', isRepairing);
+
+    const dot = card.querySelector('.status-dot');
+    if (dot) dot.className = `status-dot ${isHealthy || isRepairing ? 'blue' : 'red'}`;
+  });
+}
+
+function scheduleHealth(delay = 1800) {
+  window.clearTimeout(healthTimer);
+  if (reducedMotion.matches || document.hidden) return;
+  healthTimer = window.setTimeout(() => {
+    const phase = opsTheater?.dataset.healthPhase;
+    if (phase === 'error') {
+      repairStep = 0;
+      setHealthPhase('resolving', repairStep);
+      scheduleHealth(650);
+      return;
+    }
+    if (phase === 'resolving' && repairStep < healthItems.length - 1) {
+      repairStep += 1;
+      setHealthPhase('resolving', repairStep);
+      scheduleHealth(650);
+      return;
+    }
+    if (phase === 'resolving') {
+      setHealthPhase('healthy', healthItems.length);
+      scheduleHealth(2800);
+      return;
+    }
+    repairStep = 0;
+    setHealthPhase('error', repairStep);
+    scheduleHealth(1800);
+  }, delay);
+}
+
+function restartHealthCycle() {
+  repairStep = 0;
+  setHealthPhase('error', repairStep);
+  scheduleHealth(700);
+}
 
 function setIssueStage(stage) {
   if (!opsTheater) return;
@@ -72,7 +181,10 @@ function setIssueStage(stage) {
 }
 
 stageButtons.forEach((button) => {
-  button.addEventListener('click', () => setIssueStage(button.dataset.stageButton));
+  button.addEventListener('click', () => {
+    setIssueStage(button.dataset.stageButton);
+    restartHealthCycle();
+  });
 });
 
 const aiMap = document.querySelector('.ai-map');
@@ -253,17 +365,20 @@ if (reducedMotion.matches) {
 function startMotion() {
   if (reducedMotion.matches) {
     setJourneyPhase('ready');
+    setHealthPhase('healthy', healthItems.length);
     setAiPhase('complete');
     setSkillsPhase('complete');
     return;
   }
   scheduleJourney();
+  scheduleHealth();
   scheduleAi();
   scheduleSkills();
 }
 
 function stopMotion() {
   window.clearTimeout(journeyTimer);
+  window.clearTimeout(healthTimer);
   window.clearTimeout(aiTimer);
   window.clearTimeout(skillsTimer);
 }
@@ -280,6 +395,7 @@ reducedMotion.addEventListener('change', () => {
 });
 
 setIssueStage('container');
+setHealthPhase('error', 0);
 setJourneyPhase('ready');
 setAiPhase('complete');
 setSkillsPhase('complete');
