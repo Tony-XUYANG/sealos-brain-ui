@@ -113,7 +113,9 @@
           <div class="issue-connector" aria-hidden="true">
             <svg viewBox="0 0 1220 110" preserveAspectRatio="none">
               <path d="M610 0 V30 M200 30 H1020 M200 30 V110 M610 30 V110 M1020 30 V110"></path>
-              <circle cx="200" cy="30" r="4"></circle><circle cx="610" cy="30" r="4"></circle><circle cx="1020" cy="30" r="4"></circle>
+              <circle class="route-packet issue-packet network" r="4"><animateMotion dur="2.7s" begin=".2s" repeatCount="indefinite" path="M610 0 V30 H200 V110"></animateMotion></circle>
+              <circle class="route-packet issue-packet containers" r="4"><animateMotion dur="2.1s" begin=".5s" repeatCount="indefinite" path="M610 0 V110"></animateMotion></circle>
+              <circle class="route-packet issue-packet database" r="4"><animateMotion dur="2.7s" begin=".8s" repeatCount="indefinite" path="M610 0 V30 H1020 V110"></animateMotion></circle>
             </svg>
           </div>
 
@@ -172,9 +174,15 @@
             <path d="M785 316 H1132"></path>
             <path d="M785 386 H956"></path>
             <path d="M785 456 H1132"></path>
-            <circle class="route-packet ai-packet one" r="4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M386 133 H447 V276 H504"></animateMotion></circle>
-            <circle class="route-packet ai-packet two" r="4"><animateMotion dur="2.5s" begin=".6s" repeatCount="indefinite" path="M386 445 H447 V276 H504"></animateMotion></circle>
-            <circle class="route-packet ai-packet three" r="4"><animateMotion dur="2.8s" begin=".25s" repeatCount="indefinite" path="M692 276 H785 V386 H956"></animateMotion></circle>
+            <circle class="route-packet ai-packet input-worker" r="4"><animateMotion dur="2.2s" repeatCount="indefinite" path="M386 133 H447 V276 H504"></animateMotion></circle>
+            <circle class="route-packet ai-packet input-frontend" r="4"><animateMotion dur="2.5s" begin=".6s" repeatCount="indefinite" path="M386 445 H447 V276 H504"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="zhipu" r="4"><animateMotion dur="3.4s" begin=".15s" repeatCount="indefinite" path="M692 276 H785 V36 H1132"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="kimi" r="4"><animateMotion dur="3s" begin=".55s" repeatCount="indefinite" path="M692 276 H785 V106 H956"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="deepseek" r="4"><animateMotion dur="3.2s" begin=".95s" repeatCount="indefinite" path="M692 276 H785 V176 H1132"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="qwen" r="4"><animateMotion dur="2.8s" begin="1.35s" repeatCount="indefinite" path="M692 276 H785 V246 H956"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="gemini" r="4"><animateMotion dur="3s" begin="1.75s" repeatCount="indefinite" path="M692 276 H785 V316 H1132"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="openai" r="4"><animateMotion dur="3.1s" begin="2.15s" repeatCount="indefinite" path="M692 276 H785 V386 H956"></animateMotion></circle>
+            <circle class="route-packet ai-packet provider-packet" data-provider-packet="anthropic" r="4"><animateMotion dur="3.5s" begin="2.55s" repeatCount="indefinite" path="M692 276 H785 V456 H1132"></animateMotion></circle>
           </svg>
 
           <div class="container-stack">

@@ -653,16 +653,7 @@ ul {
 }
 
 .issue-section::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: 0;
-  right: 0;
-  top: 93px;
-  bottom: 0;
-  background-image: radial-gradient(circle at 24.5px 1.5px, rgba(93, 93, 103, .7) 0 .65px, transparent 1.05px);
-  background-size: 32px 41px;
-  pointer-events: none;
+  content: none;
 }
 
 .issue-section > .section-shell {
@@ -818,8 +809,7 @@ ul {
   height: 100%;
 }
 
-.issue-connector circle {
-  fill: #fff;
+.issue-packet {
   filter: drop-shadow(0 0 5px #fff);
 }
 

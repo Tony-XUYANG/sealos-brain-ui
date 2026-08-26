@@ -154,9 +154,39 @@ test('Sealos Agent repairs each unhealthy service before all systems become heal
 
 test('AI proxy and Skills expose the animated production graph', async ({ page }) => {
   await expect(page.locator('.provider')).toHaveCount(7);
-  await expect(page.locator('.ai-routes animateMotion')).toHaveCount(3);
+  await expect(page.locator('.issue-connector animateMotion')).toHaveCount(3);
+  await expect(page.locator('.ai-routes animateMotion')).toHaveCount(9);
+  await expect(page.locator('[data-provider-packet]')).toHaveCount(7);
   await expect(page.locator('.skills-routes animateMotion')).toHaveCount(3);
   await expect(page.locator('[data-skill-stage]')).toHaveCount(4);
+
+  const issueRoutePaths = await page.locator('.issue-connector animateMotion').evaluateAll((routes) =>
+    routes.map((route) => route.getAttribute('path'))
+  );
+  expect(issueRoutePaths).toEqual([
+    'M610 0 V30 H200 V110',
+    'M610 0 V110',
+    'M610 0 V30 H1020 V110'
+  ]);
+
+  const providerRoutePaths = await page.locator('[data-provider-packet] animateMotion').evaluateAll((routes) =>
+    routes.map((route) => route.getAttribute('path'))
+  );
+  expect(providerRoutePaths).toEqual([
+    'M692 276 H785 V36 H1132',
+    'M692 276 H785 V106 H956',
+    'M692 276 H785 V176 H1132',
+    'M692 276 H785 V246 H956',
+    'M692 276 H785 V316 H1132',
+    'M692 276 H785 V386 H956',
+    'M692 276 H785 V456 H1132'
+  ]);
+
+  const issueBackdrop = await page.locator('.issue-section').evaluate((section) => {
+    const backdrop = getComputedStyle(section, '::before');
+    return { content: backdrop.content, backgroundImage: backdrop.backgroundImage };
+  });
+  expect(issueBackdrop).toEqual({ content: 'none', backgroundImage: 'none' });
 
   const copy = page.locator('.copy-button');
   await copy.click();
