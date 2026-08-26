@@ -56,3 +56,9 @@
 [2026-08-26 11:53:45 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and endpoint port 8080.
 [2026-08-26 11:55:31 +08:00] Public Playwright passed: 18 tests, 2 viewport-specific skips; root 200, healthz 200, random missing path 404.
 [2026-08-26 11:57:14 +08:00] Runtime truth passed: 152-second comparison window, 0 active failures, 0 restart delta; one old-Pod Warning remained unchanged and historical-transient.
+[2026-08-26 14:59:34 +08:00] === Route Alignment and Recovery Animation ===
+[2026-08-26 15:00:43 +08:00] GitHub main advanced to b11d0e2a9a84a56ed966c32c14ee6bac8bd41869; CI run 32940597080 passed.
+[2026-08-26 15:02:16 +08:00] GitHub Actions image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117, public linux/amd64 manifest HTTP 200, digest sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03.
+[2026-08-26 15:04:10 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint port 8080.
+[2026-08-26 15:06:40 +08:00] Public Playwright passed: 21 tests, 3 viewport-specific skips; root 200, healthz 200, random missing path 404.
+[2026-08-26 15:08:15 +08:00] Runtime truth passed: 152-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.

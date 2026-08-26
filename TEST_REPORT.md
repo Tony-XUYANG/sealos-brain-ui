@@ -9,7 +9,8 @@ Date / 日期: `2026-08-26`
 
 - 生产构建与静态资源完整性
 - 六个页面区块、站内锚点和桌面设计几何基线
-- Deploy 状态流、问题分类切换、AI Proxy 与 Skills 动效结构
+- Deploy 逐项打勾、六项故障逐项修复、问题分类切换、AI Proxy 与 Skills 动效结构
+- Deploy 与 AI Proxy 线路端点和实际卡片、模型图标中心坐标的几何断言
 - Skills 命令复制、App Store 选择与部署状态
 - Scale 数字动画和移动菜单
 - 桌面 `1280x720` 与移动端 `390x844` 的横向溢出、文字溢出、断图、浏览器错误和严重可访问性问题
@@ -17,15 +18,15 @@ Date / 日期: `2026-08-26`
 ### 自动化结果
 
 - `npm run build`: 通过
-- 本地 `npm run test:e2e`: 通过，`16 passed / 4 conditional skipped`
-- GitHub Actions CI: 通过，[run 32923866368](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32923866368)
-- 公网 Playwright 与截图验收: 通过，`18 passed / 2 viewport-specific skipped`
+- 本地 `npm run test:e2e`: 通过，`19 passed / 5 conditional skipped`
+- GitHub Actions CI: 通过，[run 32940597080](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32940597080)
+- 公网 Playwright 与截图验收: 通过，`21 passed / 3 viewport-specific skipped`
 - 控制台错误与页面运行时错误: `0`
 - 断图: `0`
 - 横向溢出与文字溢出: `0`
 - WCAG A/AA 严重或致命问题（不含单独跟踪的颜色对比度）: `0`
 
-本地条件跳过项为桌面项目中的移动菜单用例、移动项目中的桌面几何用例，以及默认关闭的两条截图采集用例。公网验收启用了截图采集，因此仅跳过两条视口不适用用例。
+本地条件跳过项为桌面项目中的移动菜单用例、移动项目中的两条桌面几何用例，以及默认关闭的两条截图采集用例。公网验收启用了截图采集，因此仅跳过三条视口不适用用例。
 
 ### 视觉验收
 
@@ -52,12 +53,12 @@ Date / 日期: `2026-08-26`
 
 - 公网地址: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`，`1/1 Ready`，Pod 重启 `0`
-- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114`
-- 镜像 digest: `sha256:69eedd20a5f14a329ca0ebf7a46a0d9fe8da6d09ee3e3152355fda93ef18b0d6`
+- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
+- 镜像 digest: `sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03`
 - GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
 - Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
 - HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
-- 稳定窗口: `152` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化；旧 Pod 的一次 readiness 超时未增长，归类为历史瞬态
+- 稳定窗口: `152` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
 
 机器可读证据保存在 `deploy/runtime/`。
 
@@ -67,7 +68,8 @@ Date / 日期: `2026-08-26`
 
 - Production build and static asset integrity
 - Six sections, in-page anchors, and the desktop design geometry baseline
-- Deploy state flow, issue category switching, and AI Proxy/Skills animation structure
+- Sequential deployment checks, item-by-item repair of six incidents, issue category switching, and AI Proxy/Skills animation structure
+- Rendered-geometry assertions for Deploy and AI Proxy route endpoints, card edges, and provider centers
 - Skills command copy, App Store selection, and deployment state
 - Scale counter animation and mobile navigation
 - Horizontal overflow, text overflow, broken assets, browser errors, and serious accessibility findings at desktop `1280x720` and mobile `390x844`
@@ -75,15 +77,15 @@ Date / 日期: `2026-08-26`
 ### Automated results
 
 - `npm run build`: passed
-- Local `npm run test:e2e`: passed, `16 passed / 4 conditional skipped`
-- GitHub Actions CI: passed, [run 32923866368](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32923866368)
-- Public Playwright and screenshot acceptance: passed, `18 passed / 2 viewport-specific skipped`
+- Local `npm run test:e2e`: passed, `19 passed / 5 conditional skipped`
+- GitHub Actions CI: passed, [run 32940597080](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32940597080)
+- Public Playwright and screenshot acceptance: passed, `21 passed / 3 viewport-specific skipped`
 - Console and page runtime errors: `0`
 - Broken images: `0`
 - Horizontal and text overflow findings: `0`
 - Serious or critical WCAG A/AA findings, excluding separately tracked color contrast: `0`
 
-The local conditional skips are the mobile-menu case in the desktop project, the desktop-geometry case in the mobile project, and two opt-in screenshot cases. Public acceptance enabled screenshot capture, leaving only the two viewport-inapplicable cases skipped.
+The local conditional skips are the mobile-menu case in the desktop project, two desktop-geometry cases in the mobile project, and two opt-in screenshot cases. Public acceptance enabled screenshot capture, leaving only the three viewport-inapplicable cases skipped.
 
 ### Visual acceptance
 
@@ -110,11 +112,11 @@ The desktop design is the static visual acceptance reference. No separate mobile
 
 - Public URL: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`, `1/1 Ready`, Pod restarts `0`
-- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114`
-- Image digest: `sha256:69eedd20a5f14a329ca0ebf7a46a0d9fe8da6d09ee3e3152355fda93ef18b0d6`
+- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
+- Image digest: `sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03`
 - Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
 - Launchpad public-network check: `ok: true`, Service port `8080`, matching host
 - HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
-- Stability window: `152` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change; one old-Pod readiness timeout did not advance and is classified as historical transient
+- Stability window: `152` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
 
 Machine-readable evidence is stored in `deploy/runtime/`.

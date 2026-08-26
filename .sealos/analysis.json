@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T03:58:23.260Z",
+  "generated_at": "2026-08-26T07:08:15.914Z",
   "project": {
     "github_url": "https://github.com/Tony-XUYANG/sealos-brain-ui",
     "work_dir": "C:\\Users\\Administrator\\Documents\\sealos-brain-ui",
@@ -31,5 +31,5 @@
   "env_vars": {},
   "has_dockerfile": true,
   "complexity_tier": "L1",
-  "image_ref": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114"
+  "image_ref": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117"
 }

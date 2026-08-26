@@ -5,12 +5,12 @@
     "app_host": "sealos-brain-ui-dinkkees",
     "namespace": "ns-fmb1gbvg",
     "region": "sealoshzh.site",
-    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114",
+    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117",
     "docker_hub_user": null,
     "repo_name": "sealos-brain-ui",
     "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site",
     "deployed_at": "2026-08-25T11:21:17.000Z",
-    "last_updated_at": "2026-08-26T03:58:23.260Z"
+    "last_updated_at": "2026-08-26T07:08:15.914Z"
   },
   "history": [
     {
@@ -47,6 +47,15 @@
       "method": "kubectl-set-image",
       "status": "success",
       "note": "Refined Deploy clipping and AI Proxy detail fidelity from GitHub main; public Playwright and runtime stability acceptance passed"
+    },
+    {
+      "at": "2026-08-26T07:08:15.914Z",
+      "action": "set-image",
+      "previous_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114",
+      "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117",
+      "method": "kubectl-set-image",
+      "status": "success",
+      "note": "Aligned Deploy and AI route endpoints and added sequential deployment checks plus Agent-driven unhealthy-to-healthy recovery animation"
     }
   ]
 }
