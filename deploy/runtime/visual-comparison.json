@@ -13,16 +13,32 @@
     "fonts": "local bundled fonts loaded"
   },
   "difference": {
-    "mean_absolute_channel_difference": [4.7359, 4.9557, 5.3229],
-    "mean_absolute_difference": 5.0048,
-    "rmse": 26.8519,
+    "mean_absolute_channel_difference": [4.8648, 4.9812, 5.5819],
+    "mean_absolute_difference": 5.1426,
+    "rmse": 26.9061,
     "changed_pixels_percent": {
-      "max_channel_above_2": 14.7728,
-      "max_channel_above_5": 8.8515,
-      "max_channel_above_10": 5.9220,
-      "max_channel_above_20": 4.1550,
-      "max_channel_above_35": 3.3268,
-      "max_channel_above_50": 2.9300
+      "max_channel_above_2": 15.0975,
+      "max_channel_above_5": 8.9604,
+      "max_channel_above_10": 5.9858,
+      "max_channel_above_20": 4.2539,
+      "max_channel_above_35": 3.3359,
+      "max_channel_above_50": 2.9382
+    }
+  },
+  "detail_references": {
+    "ai_proxy": {
+      "source_size": "824x626",
+      "normalized_size": "412x313",
+      "mean_absolute_difference_before": 4.6420,
+      "mean_absolute_difference_after": 2.2936,
+      "rmse_before": 20.1296,
+      "rmse_after": 12.7329,
+      "pixels_above_10_before_percent": 6.5022,
+      "pixels_above_10_after_percent": 4.6256
+    },
+    "deploy_cloud": {
+      "change": "Cloud card bottom is no longer clipped by the hero boundary",
+      "note": "The new annotated detail reference supersedes the clipped state in the original full-page baseline."
     }
   },
   "mobile": {

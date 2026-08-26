@@ -33,11 +33,13 @@ Date / 日期: `2026-08-26`
 
 - 实现截图尺寸: `1440x6456`
 - 设计稿归一化尺寸: `1440x6456`
-- 平均绝对通道差: `[4.7359, 4.9557, 5.3229] / 255`
-- 总体平均绝对差: `5.0048 / 255`
-- 最大通道差超过 `10` 的像素: `5.9220%`
-- 最大通道差超过 `20` 的像素: `4.1550%`
-- 最大通道差超过 `50` 的像素: `2.9300%`
+- 平均绝对通道差: `[4.8648, 4.9812, 5.5819] / 255`
+- 总体平均绝对差: `5.1426 / 255`
+- 最大通道差超过 `10` 的像素: `5.9858%`
+- 最大通道差超过 `20` 的像素: `4.2539%`
+- 最大通道差超过 `50` 的像素: `2.9382%`
+
+新增局部参考图验收：AI Proxy 的 `412x313` 归一化裁切平均绝对差从 `4.6420` 降至 `2.2936 / 255`，RMSE 从 `20.1296` 降至 `12.7329`。Deploy 区域按新标注取消 Cloud 卡片底部裁切；这项新要求覆盖整页旧设计稿中被裁切的状态，因此整页均差有小幅变化。
 
 桌面端设计稿是静态视觉验收基准。移动端没有单独设计稿，因此采用响应式、溢出、交互和可访问性验收。
 
@@ -89,11 +91,13 @@ The original design is `2880x12912`, normalized to `1440x6456` for its `2x` pixe
 
 - Implementation screenshot: `1440x6456`
 - Normalized design: `1440x6456`
-- Mean absolute channel difference: `[4.7359, 4.9557, 5.3229] / 255`
-- Overall mean absolute difference: `5.0048 / 255`
-- Pixels with maximum channel difference above `10`: `5.9220%`
-- Pixels with maximum channel difference above `20`: `4.1550%`
-- Pixels with maximum channel difference above `50`: `2.9300%`
+- Mean absolute channel difference: `[4.8648, 4.9812, 5.5819] / 255`
+- Overall mean absolute difference: `5.1426 / 255`
+- Pixels with maximum channel difference above `10`: `5.9858%`
+- Pixels with maximum channel difference above `20`: `4.2539%`
+- Pixels with maximum channel difference above `50`: `2.9382%`
+
+New detail-reference acceptance: the normalized `412x313` AI Proxy crop improved from `4.6420` to `2.2936 / 255` mean absolute difference, with RMSE reduced from `20.1296` to `12.7329`. The Deploy detail now keeps the Cloud card bottom visible as requested; this newer annotation supersedes the clipped state in the original full-page baseline, so the full-page mean changes slightly.
 
 The desktop design is the static visual acceptance reference. No separate mobile design was provided, so mobile acceptance is based on responsiveness, overflow, interaction, and accessibility checks.
 

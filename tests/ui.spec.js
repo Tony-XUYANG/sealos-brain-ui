@@ -53,6 +53,30 @@ test('matches the desktop design canvas geometry', async ({ page }, testInfo) =>
   const geometry = await page.evaluate(() => ({
     width: document.documentElement.scrollWidth,
     height: document.documentElement.scrollHeight,
+    details: (() => {
+      const hero = document.querySelector('.hero-section');
+      const divider = document.querySelector('.hero-section + .section-divider');
+      const cloud = document.querySelector('.cloud-card');
+      const aiMap = document.querySelector('.ai-map');
+      const proxy = document.querySelector('.proxy-card');
+      const heroRect = hero.getBoundingClientRect();
+      const dividerRect = divider.getBoundingClientRect();
+      const cloudRect = cloud.getBoundingClientRect();
+      const aiMapRect = aiMap.getBoundingClientRect();
+      const proxyRect = proxy.getBoundingClientRect();
+      const cloudBottomNode = document.elementFromPoint(cloudRect.left + cloudRect.width / 2, cloudRect.bottom - 2);
+      return {
+        heroOverflowY: getComputedStyle(hero).overflowY,
+        cloudBottom: Math.round(cloudRect.bottom),
+        heroBottom: Math.round(heroRect.bottom),
+        dividerBottom: Math.round(dividerRect.bottom),
+        cloudBottomVisible: cloudBottomNode?.closest('.cloud-card') === cloud,
+        proxyLeft: Math.round(proxyRect.left - aiMapRect.left),
+        proxyTop: Math.round(proxyRect.top - aiMapRect.top),
+        proxyWidth: Math.round(proxyRect.width),
+        proxyHeight: Math.round(proxyRect.height)
+      };
+    })(),
     blocks: [...document.querySelectorAll('.site-header, main > section, main > .section-divider, .site-footer')]
       .map((element) => ({
         id: element.id || element.className,
@@ -63,6 +87,17 @@ test('matches the desktop design canvas geometry', async ({ page }, testInfo) =>
 
   expect(geometry.width).toBe(1440);
   expect(geometry.height).toBe(6456);
+  expect(geometry.details).toEqual({
+    heroOverflowY: 'visible',
+    cloudBottom: 834,
+    heroBottom: 800,
+    dividerBottom: 875,
+    cloudBottomVisible: true,
+    proxyLeft: 504,
+    proxyTop: 198,
+    proxyWidth: 188,
+    proxyHeight: 155
+  });
   expect(geometry.blocks).toEqual([
     { id: 'site-header', top: 0, height: 80 },
     { id: 'deploy', top: 80, height: 720 },

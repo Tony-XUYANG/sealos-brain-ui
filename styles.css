@@ -286,7 +286,7 @@ ul {
 .hero-section {
   height: 720px;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-image: radial-gradient(circle at 24.5px 15.5px, rgba(93, 93, 103, .7) 0 .65px, transparent 1.05px);
   background-size: 32px 41px;
 }
@@ -945,6 +945,7 @@ ul {
 .ai-section {
   height: 1070px;
   position: relative;
+  background-color: #090a0f;
 }
 
 .ai-section h2 {
@@ -1008,20 +1009,23 @@ ul {
 
 .proxy-card {
   position: absolute;
-  left: 505px;
-  top: 200px;
+  left: 504px;
+  top: 198px;
   width: 188px;
   height: 155px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: rgba(19, 21, 28, .98);
+  border-color: #37373f;
+  background-color: #14151a;
 }
 
 .proxy-card .sealos-icon {
   width: 64px;
   height: 64px;
+  border-color: #292c34;
+  background: #1b1e25;
 }
 
 .proxy-card strong {
