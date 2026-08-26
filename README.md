@@ -6,7 +6,7 @@
 
 这是 Sealos Brain 首页的前端复刻项目。静态视觉以用户提供的 `2880x12912` 设计稿为唯一基准，动画节奏参考[交互原型](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/)。页面包含 Deploy、故障修复、AI Proxy、Skills、App Store、Scale 六个区块。
 
-当前发布版本为 `v1.1.0`。线上演示已部署到 [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site)，对应公开镜像为 `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`。
+当前发布版本为 `v1.1.0`。线上演示已部署到 [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site)，对应公开镜像为 `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`。
 
 ### 本地运行
 
@@ -40,6 +40,7 @@ npm run test:e2e
 - 六个区块、站内锚点与 `1440x6456` 桌面几何基线
 - 部署逐项打勾、故障逐项修复、问题分类切换、AI/Skills 动效结构和 App Store 交互
 - Deploy 与 AI Proxy 线路端点和卡片、图标实际中心坐标的几何校验
+- 故障区 3 条动态连接粒子、AI Proxy 到 7 个模型的独立粒子路径与外层点阵控制
 - Scale 数字动画与移动菜单
 - 桌面 `1280x720`、移动端 `390x844` 的断图、横向溢出、文字溢出、控制台错误和严重可访问性问题
 
@@ -67,7 +68,7 @@ docker run --rm -p 8080:8080 sealos-brain-ui:local
 
 This project reproduces the Sealos Brain homepage. The user-provided `2880x12912` design image is the sole static visual reference, while animation timing follows the [interactive prototype](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/). The page contains Deploy, issue repair, AI Proxy, Skills, App Store, and Scale sections.
 
-The current release is `v1.1.0`. The accepted build is live on [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site) and uses the public image `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`.
+The current release is `v1.1.0`. The accepted build is live on [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site) and uses the public image `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`.
 
 ### Local development
 
@@ -101,6 +102,7 @@ Coverage includes:
 - Six sections, in-page anchors, and the `1440x6456` desktop geometry baseline
 - Sequential deployment checks, item-by-item issue repair, category switching, AI/Skills animation structure, and App Store interactions
 - Geometry checks that compare Deploy and AI Proxy route endpoints with rendered card and provider centers
+- Three moving issue-route particles, independent routes to all seven AI providers, and issue-section backdrop control
 - Scale counters and mobile navigation
 - Broken assets, horizontal and text overflow, console errors, and serious accessibility findings at desktop `1280x720` and mobile `390x844`
 

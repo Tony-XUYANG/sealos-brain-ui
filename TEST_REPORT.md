@@ -11,6 +11,7 @@ Date / 日期: `2026-08-26`
 - 六个页面区块、站内锚点和桌面设计几何基线
 - Deploy 逐项打勾、六项故障逐项修复、问题分类切换、AI Proxy 与 Skills 动效结构
 - Deploy 与 AI Proxy 线路端点和实际卡片、模型图标中心坐标的几何断言
+- 故障区 3 条动态连接粒子、AI Proxy 到 7 个模型的独立粒子路径，以及故障区外层点阵移除
 - Skills 命令复制、App Store 选择与部署状态
 - Scale 数字动画和移动菜单
 - 桌面 `1280x720` 与移动端 `390x844` 的横向溢出、文字溢出、断图、浏览器错误和严重可访问性问题
@@ -19,7 +20,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: 通过
 - 本地 `npm run test:e2e`: 通过，`19 passed / 5 conditional skipped`
-- GitHub Actions CI: 通过，[run 32945038343](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32945038343)
+- GitHub Actions CI: 通过，[run 32971157250](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32971157250)
 - 公网 Playwright 与截图验收: 通过，`21 passed / 3 viewport-specific skipped`
 - 控制台错误与页面运行时错误: `0`
 - 断图: `0`
@@ -53,12 +54,12 @@ Date / 日期: `2026-08-26`
 
 - 公网地址: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`，`1/1 Ready`，Pod 重启 `0`
-- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
-- 镜像 digest: `sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03`
+- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
+- 镜像 digest: `sha256:d295916440a5a46d2a978e1a00053928bbeed3612e9cdd4a0d7db331cd89403a`
 - GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
 - Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
 - HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
-- 稳定窗口: `664` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+- 稳定窗口: `137` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
 
 机器可读证据保存在 `deploy/runtime/`。
 
@@ -70,6 +71,7 @@ Date / 日期: `2026-08-26`
 - Six sections, in-page anchors, and the desktop design geometry baseline
 - Sequential deployment checks, item-by-item repair of six incidents, issue category switching, and AI Proxy/Skills animation structure
 - Rendered-geometry assertions for Deploy and AI Proxy route endpoints, card edges, and provider centers
+- Three moving issue-route particles, independent routes to all seven AI providers, and removal of the issue-section backdrop grid
 - Skills command copy, App Store selection, and deployment state
 - Scale counter animation and mobile navigation
 - Horizontal overflow, text overflow, broken assets, browser errors, and serious accessibility findings at desktop `1280x720` and mobile `390x844`
@@ -78,7 +80,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: passed
 - Local `npm run test:e2e`: passed, `19 passed / 5 conditional skipped`
-- GitHub Actions CI: passed, [run 32945038343](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32945038343)
+- GitHub Actions CI: passed, [run 32971157250](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32971157250)
 - Public Playwright and screenshot acceptance: passed, `21 passed / 3 viewport-specific skipped`
 - Console and page runtime errors: `0`
 - Broken images: `0`
@@ -112,11 +114,11 @@ The desktop design is the static visual acceptance reference. No separate mobile
 
 - Public URL: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`, `1/1 Ready`, Pod restarts `0`
-- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
-- Image digest: `sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03`
+- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
+- Image digest: `sha256:d295916440a5a46d2a978e1a00053928bbeed3612e9cdd4a0d7db331cd89403a`
 - Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
 - Launchpad public-network check: `ok: true`, Service port `8080`, matching host
 - HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
-- Stability window: `664` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+- Stability window: `137` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
 
 Machine-readable evidence is stored in `deploy/runtime/`.

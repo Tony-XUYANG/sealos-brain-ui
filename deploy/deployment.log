@@ -81,3 +81,9 @@
 [2026-08-26 16:07:59 +08:00] Runtime truth passed: 664-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
 [2026-08-26 16:22:31 +08:00] Public browser acceptance passed at 1280x720 and 390x844: six sections, sequential Cloud checks, six-step issue recovery, mobile menu, rollback proxy styling, 0 broken images, 0 page-level horizontal overflow, and 0 console errors.
 [2026-08-26 16:22:31 +08:00] Local production build and Playwright suite passed: 19 tests passed, 5 viewport- or capture-specific tests skipped.
+[2026-08-26 20:54:50 +08:00] === Issue and Provider Route Motion ===
+[2026-08-26 20:56:00 +08:00] GitHub main advanced to bb8bb7e195bd548de7064d07ab0236d371ac15eb; CI run 32971157250 passed.
+[2026-08-26 21:03:01 +08:00] GitHub Actions image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014, public linux/amd64 manifest HTTP 200, digest sha256:d295916440a5a46d2a978e1a00053928bbeed3612e9cdd4a0d7db331cd89403a.
+[2026-08-26 21:03:34 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint 10.109.90.97:8080.
+[2026-08-26 21:06:44 +08:00] Runtime truth passed: 137-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 21:08:00 +08:00] Public Playwright and screenshot acceptance passed: 21 tests, 3 viewport-specific skips; all 3 issue particles and all 7 provider particles changed coordinates, background grid removed, 0 console errors.

@@ -5,12 +5,12 @@
     "app_host": "sealos-brain-ui-dinkkees",
     "namespace": "ns-fmb1gbvg",
     "region": "sealoshzh.site",
-    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117",
+    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014",
     "docker_hub_user": null,
     "repo_name": "sealos-brain-ui",
     "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site",
     "deployed_at": "2026-08-25T11:21:17.000Z",
-    "last_updated_at": "2026-08-26T07:56:09.000Z"
+    "last_updated_at": "2026-08-26T13:06:44.752Z"
   },
   "history": [
     {
@@ -83,6 +83,15 @@
       "method": "kubectl-set-image",
       "status": "success",
       "note": "Rolled back the AI Proxy orbit experiment and restored the accepted square-backed, non-rotating proxy visual"
+    },
+    {
+      "at": "2026-08-26T13:06:44.752Z",
+      "action": "set-image",
+      "previous_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117",
+      "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014",
+      "method": "kubectl-set-image",
+      "status": "success",
+      "note": "Animated all three issue routes and all seven AI provider routes, and removed the issue-section background dot grid"
     }
   ]
 }

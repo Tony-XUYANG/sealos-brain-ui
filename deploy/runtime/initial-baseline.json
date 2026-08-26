@@ -1,6 +1,6 @@
 {
   "tool": "sealos-log-scan",
-  "generatedAt": "2026-08-26T07:56:54.288Z",
+  "generatedAt": "2026-08-26T13:04:27.315Z",
   "namespace": "ns-fmb1gbvg",
   "app": "sealos-brain-ui-uelrpqvt",
   "since": "10m",
@@ -16,11 +16,11 @@
   "dryRun": false,
   "pods": [
     {
-      "uid": "3f337fda-1172-4846-8202-24d927a0083c",
-      "name": "sealos-brain-ui-uelrpqvt-7c5c9f6f-rfg9s",
+      "uid": "d8b331e6-d43e-4167-bf58-eb07b3f17771",
+      "name": "sealos-brain-ui-uelrpqvt-5b9d84f5c4-bqfdr",
       "phase": "Running",
       "ready": true,
-      "readyTransitionTime": "2026-08-26T07:56:16Z",
+      "readyTransitionTime": "2026-08-26T13:03:32Z",
       "restartCount": 0,
       "restartDelta": 0,
       "replaced": false,
@@ -28,7 +28,7 @@
       "labels": {
         "app": "sealos-brain-ui-uelrpqvt",
         "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
-        "pod-template-hash": "7c5c9f6f"
+        "pod-template-hash": "5b9d84f5c4"
       },
       "containers": [
         {
@@ -38,7 +38,7 @@
           "restartCount": 0,
           "state": {
             "running": {
-              "startedAt": "2026-08-26T07:56:15Z"
+              "startedAt": "2026-08-26T13:03:29Z"
             }
           },
           "lastState": {},
@@ -47,7 +47,7 @@
             {
               "name": "current",
               "ok": true,
-              "lineCount": 47,
+              "lineCount": 46,
               "signals": [],
               "error": null
             }

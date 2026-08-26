@@ -40,7 +40,7 @@ npm run preview
 
 - GitHub: https://github.com/Tony-XUYANG/sealos-brain-ui
 - Sealos 演示: https://sealos-brain-ui-dinkkees.sealoshzh.site
-- 容器镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
+- 容器镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
 - Sealos Deployment: `sealos-brain-ui-uelrpqvt`，工作空间 `ns-fmb1gbvg`
 - 自动化与公网验收: 见 `TEST_REPORT.md` 和 `deploy/runtime/`
 
@@ -88,7 +88,7 @@ npm run preview
 
 - GitHub: https://github.com/Tony-XUYANG/sealos-brain-ui
 - Sealos demo: https://sealos-brain-ui-dinkkees.sealoshzh.site
-- Container image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117`
+- Container image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
 - Sealos Deployment: `sealos-brain-ui-uelrpqvt` in workspace `ns-fmb1gbvg`
 - Automated and public acceptance: see `TEST_REPORT.md` and `deploy/runtime/`
 

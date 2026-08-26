@@ -3,11 +3,11 @@
   "registry": "ghcr",
   "build": {
     "image_name": "sealos-brain-ui",
-    "started_at": "2026-08-26T07:01:20.000Z"
+    "started_at": "2026-08-26T13:00:15.000Z"
   },
   "push": {
-    "remote_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117",
-    "pushed_at": "2026-08-26T07:02:10.000Z"
+    "remote_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014",
+    "pushed_at": "2026-08-26T13:00:57.000Z"
   },
-  "finished_at": "2026-08-26T07:02:13.000Z"
+  "finished_at": "2026-08-26T13:00:57.000Z"
 }
