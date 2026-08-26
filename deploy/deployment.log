@@ -50,3 +50,9 @@
 [2026-08-26 10:47:30 +08:00] Deployment sealos-brain-ui-uelrpqvt rolled out successfully; 1/1 Ready, 0 restarts, Service endpoint on 8080.
 [2026-08-26 10:49:30 +08:00] Public Playwright passed: 18 tests, 2 viewport-specific skips; root 200, healthz 200, random missing path 404.
 [2026-08-26 10:50:58 +08:00] Runtime truth passed: 144-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 11:43:05 +08:00] === Detail Fidelity Refinement ===
+[2026-08-26 11:43:05 +08:00] GitHub main advanced to 2c964b41f91ad4c401b624c6c2f1f88f0af321fb; CI run 32927498225 passed.
+[2026-08-26 11:52:10 +08:00] GitHub Actions image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114, digest sha256:69eedd20a5f14a329ca0ebf7a46a0d9fe8da6d09ee3e3152355fda93ef18b0d6.
+[2026-08-26 11:53:45 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and endpoint port 8080.
+[2026-08-26 11:55:31 +08:00] Public Playwright passed: 18 tests, 2 viewport-specific skips; root 200, healthz 200, random missing path 404.
+[2026-08-26 11:57:14 +08:00] Runtime truth passed: 152-second comparison window, 0 active failures, 0 restart delta; one old-Pod Warning remained unchanged and historical-transient.

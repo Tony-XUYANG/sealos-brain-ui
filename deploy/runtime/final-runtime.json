@@ -1,6 +1,6 @@
 {
   "tool": "sealos-log-scan",
-  "generatedAt": "2026-08-26T02:50:58.799Z",
+  "generatedAt": "2026-08-26T03:57:14.132Z",
   "namespace": "ns-fmb1gbvg",
   "app": "sealos-brain-ui-uelrpqvt",
   "since": "10m",
@@ -8,19 +8,19 @@
   "minWindowSeconds": 60,
   "baseline": {
     "provided": true,
-    "generatedAt": "2026-08-26T02:48:34.123Z",
-    "elapsedSeconds": 144,
+    "generatedAt": "2026-08-26T03:54:41.599Z",
+    "elapsedSeconds": 152,
     "complete": true
   },
   "ok": true,
   "dryRun": false,
   "pods": [
     {
-      "uid": "53390107-8544-4090-9ced-20eb6096594d",
-      "name": "sealos-brain-ui-uelrpqvt-6bf46f79b-vxgtx",
+      "uid": "b6e9ef43-4b38-4155-ba1a-449ae6a2eb79",
+      "name": "sealos-brain-ui-uelrpqvt-7cf8bc7897-zz65g",
       "phase": "Running",
       "ready": true,
-      "readyTransitionTime": "2026-08-26T02:47:29Z",
+      "readyTransitionTime": "2026-08-26T03:53:44Z",
       "restartCount": 0,
       "restartDelta": 0,
       "replaced": false,
@@ -28,7 +28,7 @@
       "labels": {
         "app": "sealos-brain-ui-uelrpqvt",
         "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
-        "pod-template-hash": "6bf46f79b"
+        "pod-template-hash": "7cf8bc7897"
       },
       "containers": [
         {
@@ -38,7 +38,7 @@
           "restartCount": 0,
           "state": {
             "running": {
-              "startedAt": "2026-08-26T02:47:28Z"
+              "startedAt": "2026-08-26T03:53:41Z"
             }
           },
           "lastState": {},
@@ -56,10 +56,42 @@
       ]
     }
   ],
-  "events": [],
+  "events": [
+    {
+      "fingerprint": "53390107-8544-4090-9ced-20eb6096594d|Unhealthy|Readiness probe failed: Get \"http://10.107.147.0:8080/healthz\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+      "uid": "cb4425a7-cb84-4166-a047-da3936aee793",
+      "type": "Warning",
+      "reason": "Unhealthy",
+      "message": "Readiness probe failed: Get \"http://10.107.147.0:8080/healthz\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)",
+      "count": 1,
+      "firstSeen": "2026-08-26T03:53:48Z",
+      "lastSeen": "2026-08-26T03:53:48Z",
+      "involvedObject": {
+        "kind": "Pod",
+        "name": "sealos-brain-ui-uelrpqvt-6bf46f79b-vxgtx",
+        "uid": "53390107-8544-4090-9ced-20eb6096594d"
+      },
+      "missingSecret": null,
+      "classification": "historical-transient",
+      "baseline": {
+        "count": 1,
+        "lastSeen": "2026-08-26T03:53:48Z"
+      },
+      "delta": {
+        "count": 0,
+        "lastSeenAdvanced": false,
+        "restartCount": null,
+        "readyTransitionChanged": null
+      },
+      "podReady": null,
+      "readyTransitionTime": null,
+      "occurredBeforeReady": false,
+      "secret": null
+    }
+  ],
   "eventSummary": {
     "observed": 0,
-    "historical-transient": 0,
+    "historical-transient": 1,
     "active-failure": 0
   },
   "findings": [],

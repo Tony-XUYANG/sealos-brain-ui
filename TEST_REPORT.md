@@ -52,12 +52,12 @@ Date / 日期: `2026-08-26`
 
 - 公网地址: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`，`1/1 Ready`，Pod 重启 `0`
-- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
-- 镜像 digest: `sha256:8dc15135c7823e254dc865da2c8cfcf99000c97f4dc8908a5ac278167fdccef8`
+- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114`
+- 镜像 digest: `sha256:69eedd20a5f14a329ca0ebf7a46a0d9fe8da6d09ee3e3152355fda93ef18b0d6`
 - GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
 - Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
 - HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
-- 稳定窗口: `144` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+- 稳定窗口: `152` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化；旧 Pod 的一次 readiness 超时未增长，归类为历史瞬态
 
 机器可读证据保存在 `deploy/runtime/`。
 
@@ -110,11 +110,11 @@ The desktop design is the static visual acceptance reference. No separate mobile
 
 - Public URL: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`, `1/1 Ready`, Pod restarts `0`
-- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
-- Image digest: `sha256:8dc15135c7823e254dc865da2c8cfcf99000c97f4dc8908a5ac278167fdccef8`
+- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-115114`
+- Image digest: `sha256:69eedd20a5f14a329ca0ebf7a46a0d9fe8da6d09ee3e3152355fda93ef18b0d6`
 - Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
 - Launchpad public-network check: `ok: true`, Service port `8080`, matching host
 - HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
-- Stability window: `144` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+- Stability window: `152` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change; one old-Pod readiness timeout did not advance and is classified as historical transient
 
 Machine-readable evidence is stored in `deploy/runtime/`.

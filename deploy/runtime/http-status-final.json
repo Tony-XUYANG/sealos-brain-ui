@@ -1,9 +1,9 @@
 {
-    "checkedAt":  "2026-08-26T02:49:09.9528528Z",
+    "checkedAt":  "2026-08-26T03:55:13.9453855Z",
     "url":  "https://sealos-brain-ui-dinkkees.sealoshzh.site",
     "rootStatus":  200,
     "healthStatus":  200,
-    "missingPath":  "/__sealos_missing_1787712549",
+    "missingPath":  "/__sealos_missing_1787716513",
     "missingStatus":  404,
     "failureText":  false
 }
