@@ -188,8 +188,8 @@ stageButtons.forEach((button) => {
 });
 
 const aiMap = document.querySelector('.ai-map');
-const aiPhases = ['discover', 'inject', 'complete'];
-let aiIndex = 2;
+const aiPhases = ['discover', 'proxy', 'inject', 'complete'];
+let aiIndex = aiPhases.length - 1;
 let aiTimer;
 
 function setAiPhase(phase) {
