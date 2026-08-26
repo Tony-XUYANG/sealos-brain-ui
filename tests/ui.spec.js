@@ -158,20 +158,6 @@ test('AI proxy and Skills expose the animated production graph', async ({ page }
   await expect(page.locator('.skills-routes animateMotion')).toHaveCount(3);
   await expect(page.locator('[data-skill-stage]')).toHaveCount(4);
 
-  const aiMap = page.locator('.ai-map');
-  const idleOrbitAnimations = await page.locator('.proxy-card .sealos-icon').evaluate((element) => ({
-    outer: getComputedStyle(element, '::after').animationName,
-    inner: getComputedStyle(element, '::before').animationName
-  }));
-  expect(idleOrbitAnimations).toEqual({ outer: 'proxy-scan-spin', inner: 'none' });
-
-  await expect(aiMap).toHaveAttribute('data-ai-phase', 'proxy', { timeout: 6_000 });
-  const activeOrbitAnimations = await page.locator('.proxy-card .sealos-icon').evaluate((element) => ({
-    outer: getComputedStyle(element, '::after').animationName,
-    inner: getComputedStyle(element, '::before').animationName
-  }));
-  expect(activeOrbitAnimations).toEqual({ outer: 'proxy-scan-spin', inner: 'proxy-inner-spin' });
-
   const copy = page.locator('.copy-button');
   await copy.click();
   await expect(copy).toHaveAttribute('aria-label', 'Copied');

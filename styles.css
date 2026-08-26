@@ -1056,49 +1056,8 @@ ul {
 .proxy-card .sealos-icon {
   width: 64px;
   height: 64px;
-  border: 0;
-  border-radius: 50%;
-  background: transparent;
-  position: relative;
-  isolation: isolate;
-}
-
-.proxy-card .sealos-icon::before,
-.proxy-card .sealos-icon::after {
-  content: "";
-  position: absolute;
-  border: 1px dashed #3d4654;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.proxy-card .sealos-icon::before {
-  inset: 7px;
-}
-
-.proxy-card .sealos-icon::after {
-  inset: -7px;
-  animation: proxy-scan-spin 1.6s linear infinite;
-}
-
-.proxy-card .sealos-icon img {
-  position: relative;
-  z-index: 1;
-}
-
-.ai-map[data-ai-phase="proxy"] .proxy-card {
-  border-color: rgba(76, 145, 244, .72);
-  box-shadow: 0 0 32px rgba(76, 145, 244, .14);
-}
-
-.ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::before,
-.ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::after {
-  border-color: var(--blue-bright);
-  box-shadow: 0 0 16px rgba(76, 145, 244, .22);
-}
-
-.ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::before {
-  animation: proxy-inner-spin 1.2s linear infinite reverse;
+  border-color: #292c34;
+  background: #1b1e25;
 }
 
 .proxy-card strong {
@@ -1960,14 +1919,6 @@ ul {
   0% { opacity: .45; transform: translateX(-5px); }
   65% { transform: translateX(2px); }
   100% { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes proxy-scan-spin {
-  to { transform: rotate(360deg); }
-}
-
-@keyframes proxy-inner-spin {
-  to { transform: rotate(360deg); }
 }
 
 @keyframes marquee {
