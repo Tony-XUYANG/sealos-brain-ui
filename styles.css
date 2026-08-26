@@ -1056,8 +1056,9 @@ ul {
 .proxy-card .sealos-icon {
   width: 64px;
   height: 64px;
-  border-color: #292c34;
-  background: #1b1e25;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
   position: relative;
   isolation: isolate;
 }
@@ -1077,6 +1078,7 @@ ul {
 
 .proxy-card .sealos-icon::after {
   inset: -7px;
+  animation: proxy-scan-spin 1.6s linear infinite;
 }
 
 .proxy-card .sealos-icon img {
@@ -1089,10 +1091,14 @@ ul {
   box-shadow: 0 0 32px rgba(76, 145, 244, .14);
 }
 
+.ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::before,
 .ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::after {
   border-color: var(--blue-bright);
   box-shadow: 0 0 16px rgba(76, 145, 244, .22);
-  animation: proxy-scan-spin 1.6s linear infinite;
+}
+
+.ai-map[data-ai-phase="proxy"] .proxy-card .sealos-icon::before {
+  animation: proxy-inner-spin 1.2s linear infinite reverse;
 }
 
 .proxy-card strong {
@@ -1957,6 +1963,10 @@ ul {
 }
 
 @keyframes proxy-scan-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes proxy-inner-spin {
   to { transform: rotate(360deg); }
 }
 
