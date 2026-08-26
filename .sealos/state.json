@@ -5,12 +5,12 @@
     "app_host": "sealos-brain-ui-dinkkees",
     "namespace": "ns-fmb1gbvg",
     "region": "sealoshzh.site",
-    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260825-192649",
+    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517",
     "docker_hub_user": null,
     "repo_name": "sealos-brain-ui",
     "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site",
     "deployed_at": "2026-08-25T11:21:17.000Z",
-    "last_updated_at": "2026-08-25T11:43:06.000Z"
+    "last_updated_at": "2026-08-26T02:51:39.746Z"
   },
   "history": [
     {
@@ -29,6 +29,15 @@
       "method": "kubectl-set-image",
       "status": "success",
       "note": "Removed obsolete GLM runtime fallback after public smoke detected asset 404"
+    },
+    {
+      "at": "2026-08-26T02:51:39.746Z",
+      "action": "set-image",
+      "previous_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260825-192649",
+      "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517",
+      "method": "kubectl-set-image",
+      "status": "success",
+      "note": "Released the v1.1.0 design-match implementation after CI, public Playwright, HTTP, and runtime stability acceptance"
     }
   ]
 }

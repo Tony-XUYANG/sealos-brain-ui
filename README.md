@@ -6,7 +6,7 @@
 
 这是 Sealos Brain 首页的前端复刻项目。静态视觉以用户提供的 `2880x12912` 设计稿为唯一基准，动画节奏参考[交互原型](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/)。页面包含 Deploy、故障修复、AI Proxy、Skills、App Store、Scale 六个区块。
 
-当前工作区是 2026-08-26 的设计稿匹配候选版本。现有 Sealos 公网地址仍运行 `v1.0.0` 旧版，需验收本地版本后再覆盖部署。
+当前发布版本为 `v1.1.0`。线上演示已部署到 [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site)，对应公开镜像为 `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`。
 
 ### 本地运行
 
@@ -66,7 +66,7 @@ docker run --rm -p 8080:8080 sealos-brain-ui:local
 
 This project reproduces the Sealos Brain homepage. The user-provided `2880x12912` design image is the sole static visual reference, while animation timing follows the [interactive prototype](https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/). The page contains Deploy, issue repair, AI Proxy, Skills, App Store, and Scale sections.
 
-The current working tree is the 2026-08-26 design-match candidate. The existing public Sealos URL still runs the previous `v1.0.0` build and should only be replaced after local acceptance.
+The current release is `v1.1.0`. The accepted build is live on [Sealos Cloud](https://sealos-brain-ui-dinkkees.sealoshzh.site) and uses the public image `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`.
 
 ### Local development
 

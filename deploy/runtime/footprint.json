@@ -81,7 +81,7 @@
     },
     {
       "type": "pod",
-      "name": "sealos-brain-ui-uelrpqvt-68dfbf86dc-2mgx7",
+      "name": "sealos-brain-ui-uelrpqvt-6bf46f79b-vxgtx",
       "phase": "Running",
       "ready": "True",
       "desired": 1,
@@ -91,9 +91,9 @@
       "labels": {
         "app": "sealos-brain-ui-uelrpqvt",
         "cloud.sealos.io/app-deploy-manager": "sealos-brain-ui-uelrpqvt",
-        "pod-template-hash": "68dfbf86dc"
+        "pod-template-hash": "6bf46f79b"
       },
-      "ageTimestamp": "2026-08-25T11:21:17Z"
+      "ageTimestamp": "2026-08-26T02:47:20Z"
     }
   ],
   "errors": [],

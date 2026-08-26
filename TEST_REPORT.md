@@ -17,14 +17,15 @@ Date / 日期: `2026-08-26`
 ### 自动化结果
 
 - `npm run build`: 通过
-- `npm run test:e2e`: 通过，`16 passed / 4 conditional skipped`
-- 截图采集用例: 通过，`2 passed`
+- 本地 `npm run test:e2e`: 通过，`16 passed / 4 conditional skipped`
+- GitHub Actions CI: 通过，[run 32923866368](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32923866368)
+- 公网 Playwright 与截图验收: 通过，`18 passed / 2 viewport-specific skipped`
 - 控制台错误与页面运行时错误: `0`
 - 断图: `0`
 - 横向溢出与文字溢出: `0`
 - WCAG A/AA 严重或致命问题（不含单独跟踪的颜色对比度）: `0`
 
-条件跳过项为：桌面项目中的移动菜单用例、移动项目中的桌面几何用例，以及默认关闭的两条截图采集用例。
+本地条件跳过项为桌面项目中的移动菜单用例、移动项目中的桌面几何用例，以及默认关闭的两条截图采集用例。公网验收启用了截图采集，因此仅跳过两条视口不适用用例。
 
 ### 视觉验收
 
@@ -47,7 +48,16 @@ Date / 日期: `2026-08-26`
 
 ### 部署状态
 
-本报告验证的是本地设计稿匹配候选版本。现有 Sealos 公网地址仍是先前通过验证的 `v1.0.0`，本轮尚未覆盖部署。待人工验收本地版本后，再构建不可变 GHCR 镜像并更新 Sealos Deployment。
+- 公网地址: https://sealos-brain-ui-dinkkees.sealoshzh.site
+- Deployment: `sealos-brain-ui-uelrpqvt`，`1/1 Ready`，Pod 重启 `0`
+- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
+- 镜像 digest: `sha256:8dc15135c7823e254dc865da2c8cfcf99000c97f4dc8908a5ac278167fdccef8`
+- GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
+- Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
+- HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
+- 稳定窗口: `144` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+
+机器可读证据保存在 `deploy/runtime/`。
 
 ## English
 
@@ -63,14 +73,15 @@ Date / 日期: `2026-08-26`
 ### Automated results
 
 - `npm run build`: passed
-- `npm run test:e2e`: passed, `16 passed / 4 conditional skipped`
-- Screenshot capture tests: passed, `2 passed`
+- Local `npm run test:e2e`: passed, `16 passed / 4 conditional skipped`
+- GitHub Actions CI: passed, [run 32923866368](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32923866368)
+- Public Playwright and screenshot acceptance: passed, `18 passed / 2 viewport-specific skipped`
 - Console and page runtime errors: `0`
 - Broken images: `0`
 - Horizontal and text overflow findings: `0`
 - Serious or critical WCAG A/AA findings, excluding separately tracked color contrast: `0`
 
-The conditional skips are the mobile menu case in the desktop project, the desktop geometry case in the mobile project, and two opt-in screenshot capture cases.
+The local conditional skips are the mobile-menu case in the desktop project, the desktop-geometry case in the mobile project, and two opt-in screenshot cases. Public acceptance enabled screenshot capture, leaving only the two viewport-inapplicable cases skipped.
 
 ### Visual acceptance
 
@@ -93,4 +104,13 @@ The desktop design is the static visual acceptance reference. No separate mobile
 
 ### Deployment status
 
-This report covers the local design-match candidate. The existing public Sealos URL still serves the previously validated `v1.0.0` build and has not been overwritten in this iteration. After local human acceptance, build a new immutable GHCR image and update the Sealos Deployment.
+- Public URL: https://sealos-brain-ui-dinkkees.sealoshzh.site
+- Deployment: `sealos-brain-ui-uelrpqvt`, `1/1 Ready`, Pod restarts `0`
+- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
+- Image digest: `sha256:8dc15135c7823e254dc865da2c8cfcf99000c97f4dc8908a5ac278167fdccef8`
+- Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
+- Launchpad public-network check: `ok: true`, Service port `8080`, matching host
+- HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
+- Stability window: `144` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+
+Machine-readable evidence is stored in `deploy/runtime/`.

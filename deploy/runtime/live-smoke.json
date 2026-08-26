@@ -9,11 +9,11 @@
       "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site/",
       "status": 200,
       "ok": true,
-      "elapsedMs": 159,
+      "elapsedMs": 175,
       "contentType": "text/html",
       "location": null,
       "setCookie": null,
-      "bodyPreview": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"Sealos analyzes real projects from GitHub or your coding agent, bu",
+      "bodyPreview": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n  <meta name=\"description\" content=\"Sealos turns code from GitHub or a coding agent into a production-",
       "failureSignals": [],
       "json": null
     }

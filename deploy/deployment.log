@@ -42,3 +42,11 @@
 [2026-08-25 19:44:00 +08:00] Public Playwright passed: 15 tests, 1 viewport-conditional skip; desktop and mobile screenshots captured.
 [2026-08-25 19:50:55 +08:00] Runtime truth passed: 164-second stability window, 0 restarts, 0 active-failure Events, 0 log findings.
 [2026-08-25 19:52:00 +08:00] Frozen-motion reference comparison passed: identical document dimensions; desktop pixel delta 0.448360%, mobile pixel delta 0.420410%.
+[2026-08-26 10:44:45 +08:00] === v1.1.0 Source Release ===
+[2026-08-26 10:44:45 +08:00] GitHub main advanced to 7967919a26620f53efe5fc5ecee57ac59e2e9cfc without force.
+[2026-08-26 10:46:26 +08:00] CI passed: run 32923866368; local suite passed 16 tests with 4 conditional skips.
+[2026-08-26 10:46:26 +08:00] Image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517, linux/amd64, public manifest HTTP 200, digest sha256:8dc15135c7823e254dc865da2c8cfcf99000c97f4dc8908a5ac278167fdccef8.
+[2026-08-26 10:47:30 +08:00] === Sealos In-place Update ===
+[2026-08-26 10:47:30 +08:00] Deployment sealos-brain-ui-uelrpqvt rolled out successfully; 1/1 Ready, 0 restarts, Service endpoint on 8080.
+[2026-08-26 10:49:30 +08:00] Public Playwright passed: 18 tests, 2 viewport-specific skips; root 200, healthz 200, random missing path 404.
+[2026-08-26 10:50:58 +08:00] Runtime truth passed: 144-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.

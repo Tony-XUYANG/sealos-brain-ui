@@ -36,13 +36,15 @@ npm run preview
 - `TEST_REPORT.md`: 新设计候选版本的量化验收结果
 - `docs/screenshots/`: 桌面与移动端全页截图
 
-### 发布顺序
+### 已发布资源
 
-1. 人工检查本地 `http://127.0.0.1:4175/`。
-2. 确认视觉和动效后提交代码并创建新版本标签。
-3. 构建新的不可变 GHCR 标签，不覆盖旧标签。
-4. 原地更新 Sealos Deployment。
-5. 在线重新运行 Playwright、HTTP、日志和稳定窗口检查。
+- GitHub: https://github.com/Tony-XUYANG/sealos-brain-ui
+- Sealos 演示: https://sealos-brain-ui-dinkkees.sealoshzh.site
+- 容器镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
+- Sealos Deployment: `sealos-brain-ui-uelrpqvt`，工作空间 `ns-fmb1gbvg`
+- 自动化与公网验收: 见 `TEST_REPORT.md` 和 `deploy/runtime/`
+
+后续版本应使用新的不可变镜像标签并执行 `kubectl set image`。如新版本 rollout 失败，使用 `kubectl rollout undo deployment/sealos-brain-ui-uelrpqvt -n ns-fmb1gbvg` 回滚。
 
 ### 维护边界
 
@@ -82,13 +84,15 @@ npm run preview
 - `TEST_REPORT.md`: quantified acceptance results for the new candidate
 - `docs/screenshots/`: desktop and mobile full-page screenshots
 
-### Release order
+### Published resources
 
-1. Review `http://127.0.0.1:4175/` locally.
-2. After visual and motion approval, commit the code and create a new version tag.
-3. Build a new immutable GHCR tag; do not overwrite an old tag.
-4. Update the Sealos Deployment in place.
-5. Repeat Playwright, HTTP, log, and stability-window checks against the public URL.
+- GitHub: https://github.com/Tony-XUYANG/sealos-brain-ui
+- Sealos demo: https://sealos-brain-ui-dinkkees.sealoshzh.site
+- Container image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-104517`
+- Sealos Deployment: `sealos-brain-ui-uelrpqvt` in workspace `ns-fmb1gbvg`
+- Automated and public acceptance: see `TEST_REPORT.md` and `deploy/runtime/`
+
+Future releases should use a new immutable image tag and `kubectl set image`. If a rollout fails, run `kubectl rollout undo deployment/sealos-brain-ui-uelrpqvt -n ns-fmb1gbvg`.
 
 ### Maintenance boundary
 
