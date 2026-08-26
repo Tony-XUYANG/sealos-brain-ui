@@ -157,7 +157,8 @@ test('AI proxy and Skills expose the animated production graph', async ({ page }
   await expect(page.locator('.issue-connector animateMotion')).toHaveCount(3);
   await expect(page.locator('.ai-routes animateMotion')).toHaveCount(9);
   await expect(page.locator('[data-provider-packet]')).toHaveCount(7);
-  await expect(page.locator('.skills-routes animateMotion')).toHaveCount(3);
+  await expect(page.locator('.skills-routes animateMotion')).toHaveCount(5);
+  await expect(page.locator('[data-skill-packet]')).toHaveCount(5);
   await expect(page.locator('[data-skill-stage]')).toHaveCount(4);
 
   const issueRoutePaths = await page.locator('.issue-connector animateMotion').evaluateAll((routes) =>
@@ -180,6 +181,17 @@ test('AI proxy and Skills expose the animated production graph', async ({ page }
     'M692 276 H785 V316 H1132',
     'M692 276 H785 V386 H956',
     'M692 276 H785 V456 H1132'
+  ]);
+
+  const skillRoutePaths = await page.locator('[data-skill-packet] animateMotion').evaluateAll((routes) =>
+    routes.map((route) => route.getAttribute('path'))
+  );
+  expect(skillRoutePaths).toEqual([
+    'M64 45 H340 V155 H450',
+    'M136 130 H340 V155 H450',
+    'M64 215 H340 V155 H450',
+    'M136 285 H340 V155 H450',
+    'M610 155 H740'
   ]);
 
   const issueBackdrop = await page.locator('.issue-section').evaluate((section) => {
