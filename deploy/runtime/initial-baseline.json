@@ -1,6 +1,6 @@
 {
   "tool": "sealos-log-scan",
-  "generatedAt": "2026-08-26T07:05:43.000Z",
+  "generatedAt": "2026-08-26T07:56:54.288Z",
   "namespace": "ns-fmb1gbvg",
   "app": "sealos-brain-ui-uelrpqvt",
   "since": "10m",
@@ -16,11 +16,11 @@
   "dryRun": false,
   "pods": [
     {
-      "uid": "e30d9bdb-a469-4400-bb07-c0ab19e95d21",
-      "name": "sealos-brain-ui-uelrpqvt-7c5c9f6f-4sh7z",
+      "uid": "3f337fda-1172-4846-8202-24d927a0083c",
+      "name": "sealos-brain-ui-uelrpqvt-7c5c9f6f-rfg9s",
       "phase": "Running",
       "ready": true,
-      "readyTransitionTime": "2026-08-26T07:04:10Z",
+      "readyTransitionTime": "2026-08-26T07:56:16Z",
       "restartCount": 0,
       "restartDelta": 0,
       "replaced": false,
@@ -38,7 +38,7 @@
           "restartCount": 0,
           "state": {
             "running": {
-              "startedAt": "2026-08-26T07:04:08Z"
+              "startedAt": "2026-08-26T07:56:15Z"
             }
           },
           "lastState": {},
@@ -47,7 +47,7 @@
             {
               "name": "current",
               "ok": true,
-              "lineCount": 46,
+              "lineCount": 47,
               "signals": [],
               "error": null
             }

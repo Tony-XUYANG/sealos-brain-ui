@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site",
+  "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site/",
   "loginMethod": null,
   "credentials": null,
   "steps": [
@@ -9,7 +9,7 @@
       "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site/",
       "status": 200,
       "ok": true,
-      "elapsedMs": 203,
+      "elapsedMs": 192,
       "contentType": "text/html",
       "location": null,
       "setCookie": null,

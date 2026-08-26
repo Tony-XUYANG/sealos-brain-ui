@@ -62,3 +62,22 @@
 [2026-08-26 15:04:10 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint port 8080.
 [2026-08-26 15:06:40 +08:00] Public Playwright passed: 21 tests, 3 viewport-specific skips; root 200, healthz 200, random missing path 404.
 [2026-08-26 15:08:15 +08:00] Runtime truth passed: 152-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 15:25:58 +08:00] === AI Proxy Rotating Orbit ===
+[2026-08-26 15:27:24 +08:00] GitHub main advanced to c02871c072fd81a1c78744891abe7d9f6f3b3293; CI run 32942726638 passed.
+[2026-08-26 15:29:03 +08:00] GitHub Actions image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-152809, public linux/amd64 manifest HTTP 200, digest sha256:85dffc5d11c047c44a32a83e3c2d8a8dd299f9f6a5721a26e93455c281f34e5e.
+[2026-08-26 15:30:07 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint port 8080.
+[2026-08-26 15:33:55 +08:00] Public Playwright passed: 21 tests, 3 viewport-specific skips, including the AI Proxy orbit animation assertion.
+[2026-08-26 15:34:39 +08:00] Runtime truth passed: 208-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 15:40:38 +08:00] === AI Proxy Dual-ring Refinement ===
+[2026-08-26 15:41:50 +08:00] GitHub main advanced to dcd44d4ad15d6135fdd7255603fab7e6e3bd6a7b; CI run 32943922905 passed.
+[2026-08-26 15:43:29 +08:00] GitHub Actions image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-154241, public linux/amd64 manifest HTTP 200, digest sha256:c7a51168f852a6698fc8f5d04c8be76f5283a36825a149ebb0d3162079a94cbf.
+[2026-08-26 15:44:31 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint port 8080.
+[2026-08-26 15:47:30 +08:00] Public Playwright passed: 21 tests, 3 viewport-specific skips, verifying the always-on outer orbit and proxy-phase-only inner orbit.
+[2026-08-26 15:48:02 +08:00] Runtime truth passed: 138-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 15:56:09 +08:00] === AI Proxy Orbit Rollback ===
+[2026-08-26 15:56:09 +08:00] Deployment rolled back from ghcr.io/tony-xuyang/sealos-brain-ui:20260826-154241 to the previously accepted public image ghcr.io/tony-xuyang/sealos-brain-ui:20260826-150117 (digest sha256:a79aa44946282c87e566a3a5aec45914c1d360cbfed7002f88b58a1aa4559b03).
+[2026-08-26 15:56:16 +08:00] Rollback Pod reached 1/1 Ready with 0 restarts; Service endpoint is 10.108.225.71:8080.
+[2026-08-26 16:07:59 +08:00] Public checks passed: Launchpad ok, root 200, healthz 200, random missing path 404.
+[2026-08-26 16:07:59 +08:00] Runtime truth passed: 664-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 16:22:31 +08:00] Public browser acceptance passed at 1280x720 and 390x844: six sections, sequential Cloud checks, six-step issue recovery, mobile menu, rollback proxy styling, 0 broken images, 0 page-level horizontal overflow, and 0 console errors.
+[2026-08-26 16:22:31 +08:00] Local production build and Playwright suite passed: 19 tests passed, 5 viewport- or capture-specific tests skipped.

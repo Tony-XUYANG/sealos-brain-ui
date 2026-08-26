@@ -19,7 +19,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: 通过
 - 本地 `npm run test:e2e`: 通过，`19 passed / 5 conditional skipped`
-- GitHub Actions CI: 通过，[run 32940597080](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32940597080)
+- GitHub Actions CI: 通过，[run 32945038343](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32945038343)
 - 公网 Playwright 与截图验收: 通过，`21 passed / 3 viewport-specific skipped`
 - 控制台错误与页面运行时错误: `0`
 - 断图: `0`
@@ -58,7 +58,7 @@ Date / 日期: `2026-08-26`
 - GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
 - Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
 - HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
-- 稳定窗口: `152` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+- 稳定窗口: `664` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
 
 机器可读证据保存在 `deploy/runtime/`。
 
@@ -78,7 +78,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: passed
 - Local `npm run test:e2e`: passed, `19 passed / 5 conditional skipped`
-- GitHub Actions CI: passed, [run 32940597080](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32940597080)
+- GitHub Actions CI: passed, [run 32945038343](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32945038343)
 - Public Playwright and screenshot acceptance: passed, `21 passed / 3 viewport-specific skipped`
 - Console and page runtime errors: `0`
 - Broken images: `0`
@@ -117,6 +117,6 @@ The desktop design is the static visual acceptance reference. No separate mobile
 - Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
 - Launchpad public-network check: `ok: true`, Service port `8080`, matching host
 - HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
-- Stability window: `152` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+- Stability window: `664` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
 
 Machine-readable evidence is stored in `deploy/runtime/`.
