@@ -1,98 +1,96 @@
 # Test Report / 测试报告
 
-Version / 版本: `v1.0.0`  
-Date / 日期: `2026-08-25`
+Candidate / 候选版本: `v1.1.0`
+Date / 日期: `2026-08-26`
 
 ## 中文
 
 ### 测试范围
 
 - 生产构建与静态资源完整性
-- 六个页面区块与站内锚点
-- Project Journey 暂停、恢复和部署状态
-- AI Ops 场景切换与暂停控制
-- App Store 应用选择
-- Scale 数字动画
-- 移动端菜单
-- 桌面端 `1280x720` 与移动端 `390x844` 的横向溢出、文字溢出、浏览器错误和非视觉类严重可访问性问题
-
-### 设计还原验收
-
-- 参考站与本地站在 `1440x1000` 下的页面高度均为 `6185px`。
-- 六个区块的位置、高度、标题字号、行高与颜色一致。
-- 桌面端像素差异为 `0.6958%`，差异集中在采样时刻不同的运动节点与进度动画；平均通道差异小于 `0.09`。
-- 参考站与本地站在 `390x844` 下的页面高度均为 `10220px`。
-- 移动端像素差异为 `0.035841%`。
-- 本地字体与原型使用同一 Google Fonts 字体文件，但已随项目打包，不依赖运行时字体请求。
-- 为保证像素级还原，自动化可访问性门禁不修改原型的低对比度辅助文字颜色；`color-contrast` 作为已知视觉设计取舍单独记录，其余 WCAG A/AA 严重与致命规则仍会阻止发布。
+- 六个页面区块、站内锚点和桌面设计几何基线
+- Deploy 状态流、问题分类切换、AI Proxy 与 Skills 动效结构
+- Skills 命令复制、App Store 选择与部署状态
+- Scale 数字动画和移动菜单
+- 桌面 `1280x720` 与移动端 `390x844` 的横向溢出、文字溢出、断图、浏览器错误和严重可访问性问题
 
 ### 自动化结果
 
 - `npm run build`: 通过
-- `npm run test:e2e`: 通过，`13 passed`，`3 skipped`；跳过项是仅移动端用例在桌面项目中跳过，以及需要显式开启的截图采集用例
-- 截图采集: 通过，桌面端 `1280x6180`，移动端 `390x10172`
-- 控制台与页面运行时错误: `0`
+- `npm run test:e2e`: 通过，`16 passed / 4 conditional skipped`
+- 截图采集用例: 通过，`2 passed`
+- 控制台错误与页面运行时错误: `0`
+- 断图: `0`
 - 横向溢出与文字溢出: `0`
-- 线上地址部署后将使用同一套测试重新验证
-- GitHub Actions CI: 通过（生产构建与 Playwright）
-- GHCR `linux/amd64` 镜像构建: 通过，含 provenance 与 SBOM
-- Sealos Template 质量门禁: 通过，56 条一致性规则与全部验证器自测通过
-- Sealos Template API dry-run: HTTP `200`，资源预览为 1 个 Deployment、Service、Ingress 和 App；未创建云端资源
-- Sealos 正式部署: 通过，`sealos-brain-ui-uelrpqvt` 为 `1/1 Ready`，零重启
-- Launchpad 公网检查: 通过，API `200`、HTTPS 域名与 Service `8080` 匹配
-- 线上 Playwright: 通过，`15 passed`，`1 skipped`（桌面项目跳过移动端专属菜单用例）
-- HTTP: 根路径 `200`，`/healthz` 为 `200`，随机缺失路径为 `404`
-- 稳定性窗口: 通过，持续 `164 秒`，零 Pod 替换、零 Ready 变化、零重启、零活跃失败 Event、零日志信号
-- 最终冻结动效视觉对比: 桌面端页面均为 `1440x6190`，差异 `0.448360%`；移动端页面均为 `390x10172`，差异 `0.420410%`；平均通道差异均小于 `0.13`
+- WCAG A/AA 严重或致命问题（不含单独跟踪的颜色对比度）: `0`
 
-验收截图：
+条件跳过项为：桌面项目中的移动菜单用例、移动项目中的桌面几何用例，以及默认关闭的两条截图采集用例。
 
-- `docs/screenshots/desktop.png`
-- `docs/screenshots/mobile.png`
+### 视觉验收
+
+设计稿原始尺寸为 `2880x12912`，按 `2x` 像素密度归一化为 `1440x6456`。冻结动画并加载本地字体后进行全页比较：
+
+- 实现截图尺寸: `1440x6456`
+- 设计稿归一化尺寸: `1440x6456`
+- 平均绝对通道差: `[4.7359, 4.9557, 5.3229] / 255`
+- 总体平均绝对差: `5.0048 / 255`
+- 最大通道差超过 `10` 的像素: `5.9220%`
+- 最大通道差超过 `20` 的像素: `4.1550%`
+- 最大通道差超过 `50` 的像素: `2.9300%`
+
+桌面端设计稿是静态视觉验收基准。移动端没有单独设计稿，因此采用响应式、溢出、交互和可访问性验收。
+
+### 验收截图
+
+- `docs/screenshots/desktop.png` (`1440x6456`)
+- `docs/screenshots/mobile.png` (`390x9930`)
+
+### 部署状态
+
+本报告验证的是本地设计稿匹配候选版本。现有 Sealos 公网地址仍是先前通过验证的 `v1.0.0`，本轮尚未覆盖部署。待人工验收本地版本后，再构建不可变 GHCR 镜像并更新 Sealos Deployment。
 
 ## English
 
 ### Coverage
 
 - Production build and static asset integrity
-- Six page sections and in-page anchors
-- Project Journey pause, resume, and deployment state
-- AI Ops scenario switching and pause control
-- App Store selection
-- Scale number animation
-- Mobile navigation
-- Horizontal overflow, text overflow, browser errors, and serious non-visual accessibility findings at desktop `1280x720` and mobile `390x844`
+- Six sections, in-page anchors, and the desktop design geometry baseline
+- Deploy state flow, issue category switching, and AI Proxy/Skills animation structure
+- Skills command copy, App Store selection, and deployment state
+- Scale counter animation and mobile navigation
+- Horizontal overflow, text overflow, broken assets, browser errors, and serious accessibility findings at desktop `1280x720` and mobile `390x844`
 
-### Visual fidelity acceptance
-
-- The reference and local pages both have a `6185px` document height at `1440x1000`.
-- All six sections match in position, height, heading size, line height, and color.
-- Desktop pixel difference is `0.6958%`, isolated to moving nodes and progress animations sampled at different moments; mean channel difference is below `0.09`.
-- The reference and local pages both have a `10220px` document height at `390x844`.
-- Mobile pixel difference is `0.035841%`.
-- Local fonts use the same Google Fonts files as the prototype but are bundled with the project, eliminating runtime font requests.
-- To preserve pixel fidelity, the automated accessibility gate does not change the prototype's low-contrast secondary text. `color-contrast` is tracked as a known visual-design tradeoff; every other serious or critical WCAG A/AA rule still blocks release.
-
-### Automated result
+### Automated results
 
 - `npm run build`: passed
-- `npm run test:e2e`: passed, `13 passed`, `3 skipped`; skips are the mobile-only case in the desktop project and opt-in screenshot capture cases
-- Screenshot capture: passed at `1280x6180` desktop and `390x10172` mobile
+- `npm run test:e2e`: passed, `16 passed / 4 conditional skipped`
+- Screenshot capture tests: passed, `2 passed`
 - Console and page runtime errors: `0`
+- Broken images: `0`
 - Horizontal and text overflow findings: `0`
-- The same suite will be run again against the public deployment
-- GitHub Actions CI: passed (production build and Playwright)
-- GHCR `linux/amd64` image build: passed with provenance and SBOM
-- Sealos Template quality gate: passed all 56 consistency rules and validator self-tests
-- Sealos Template API dry-run: HTTP `200`, previewing one Deployment, Service, Ingress, and App; no cloud resource was created
-- Sealos deployment: passed; `sealos-brain-ui-uelrpqvt` is `1/1 Ready` with zero restarts
-- Launchpad public network: passed; API `200`, HTTPS hostname, and Service port `8080` match
-- Public Playwright suite: passed, `15 passed`, `1 skipped` (mobile-only menu case skipped in desktop project)
-- HTTP: root `200`, `/healthz` `200`, random missing path `404`
-- Stability window: passed for `164 seconds` with no Pod replacement, Ready change, restart, active failure Event, or log signal
-- Final frozen-motion visual comparison: both desktop pages are `1440x6190` with `0.448360%` differing pixels; both mobile pages are `390x10172` with `0.420410%` differing pixels; mean channel differences are below `0.13`
+- Serious or critical WCAG A/AA findings, excluding separately tracked color contrast: `0`
 
-Acceptance screenshots:
+The conditional skips are the mobile menu case in the desktop project, the desktop geometry case in the mobile project, and two opt-in screenshot capture cases.
 
-- `docs/screenshots/desktop.png`
-- `docs/screenshots/mobile.png`
+### Visual acceptance
+
+The original design is `2880x12912`, normalized to `1440x6456` for its `2x` pixel density. A full-page comparison was performed with animations frozen and local fonts loaded:
+
+- Implementation screenshot: `1440x6456`
+- Normalized design: `1440x6456`
+- Mean absolute channel difference: `[4.7359, 4.9557, 5.3229] / 255`
+- Overall mean absolute difference: `5.0048 / 255`
+- Pixels with maximum channel difference above `10`: `5.9220%`
+- Pixels with maximum channel difference above `20`: `4.1550%`
+- Pixels with maximum channel difference above `50`: `2.9300%`
+
+The desktop design is the static visual acceptance reference. No separate mobile design was provided, so mobile acceptance is based on responsiveness, overflow, interaction, and accessibility checks.
+
+### Acceptance screenshots
+
+- `docs/screenshots/desktop.png` (`1440x6456`)
+- `docs/screenshots/mobile.png` (`390x9930`)
+
+### Deployment status
+
+This report covers the local design-match candidate. The existing public Sealos URL still serves the previously validated `v1.0.0` build and has not been overwritten in this iteration. After local human acceptance, build a new immutable GHCR image and update the Sealos Deployment.

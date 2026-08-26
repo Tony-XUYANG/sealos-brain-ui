@@ -1,6 +1,6 @@
 # Handoff Guide / 交接指南
 
-Version / 版本: `v1.0.0`
+Release / 发布版本: `v1.1.0`
 
 ## 中文
 
@@ -10,70 +10,86 @@ Version / 版本: `v1.0.0`
 git clone https://github.com/Tony-XUYANG/sealos-brain-ui.git
 cd sealos-brain-ui
 npm ci
-npm run dev
-```
-
-生产验收：
-
-```bash
-npm run build
 npx playwright install chromium
 npm run test:e2e
 ```
 
-### 交付内容
+本地查看：
 
-- `main`：稳定交付分支
-- `v1.0.0`：首个正式交付标签与 Release
-- `README.md`：开发、构建、测试和容器说明
-- `TEST_REPORT.md`：视觉、交互、布局和运行时验收结果
-- `docs/screenshots/`：桌面端与移动端全页截图
-- `.sealos/template/`：Sealos Template 与图标
-- `deploy/deployment.log`：部署阶段记录
-- 线上地址：`https://sealos-brain-ui-dinkkees.sealoshzh.site`
+```bash
+npm run dev
+```
+
+生产预览：
+
+```bash
+npm run build
+npm run preview
+```
+
+### 本轮交付内容
+
+- 以用户设计稿为静态视觉基准的六区块首页
+- 参考交互原型实现的连线光点、状态轮播、数字动画和交互反馈
+- 本地字体与设计稿提取的产品预览、像素吉祥物和装饰字标
+- `tests/ui.spec.js`: 桌面、移动、交互、资源、溢出和可访问性测试
+- `TEST_REPORT.md`: 新设计候选版本的量化验收结果
+- `docs/screenshots/`: 桌面与移动端全页截图
+
+### 发布顺序
+
+1. 人工检查本地 `http://127.0.0.1:4175/`。
+2. 确认视觉和动效后提交代码并创建新版本标签。
+3. 构建新的不可变 GHCR 标签，不覆盖旧标签。
+4. 原地更新 Sealos Deployment。
+5. 在线重新运行 Playwright、HTTP、日志和稳定窗口检查。
 
 ### 维护边界
 
-页面是前端交互原型。Project Journey、AI Ops、AI Proxy、Skills 和 App Store 的流程由 `script.js` 中的浏览器状态机驱动；它们不会创建真实云资源或调用真实业务 API。
-
-更新 UI 后先执行 `npm run test:e2e`，再构建新镜像并更新 Sealos Deployment。回滚使用上一个 GHCR 镜像标签或 Kubernetes rollout history，不要覆盖旧镜像标签。
-
-本地 Docker 不可用时，可在 GitHub Actions 中手动运行 `Release container image`，输入新的不可变时间戳标签。
+页面仍是前端交互演示。Deploy、问题修复、AI Proxy、Skills 和 App Store 由 `script.js` 中的浏览器状态机驱动，不会创建真实云资源或调用真实业务 API。
 
 ## English
 
-### Recipient quick verification
+### Recipient verification
 
 ```bash
 git clone https://github.com/Tony-XUYANG/sealos-brain-ui.git
 cd sealos-brain-ui
 npm ci
-npm run dev
-```
-
-Production acceptance:
-
-```bash
-npm run build
 npx playwright install chromium
 npm run test:e2e
 ```
 
-### Delivered artifacts
+Local development:
 
-- `main`: stable delivery branch
-- `v1.0.0`: first production handoff tag and GitHub Release
-- `README.md`: development, build, test, and container instructions
-- `TEST_REPORT.md`: visual, interaction, layout, and runtime acceptance results
+```bash
+npm run dev
+```
+
+Production preview:
+
+```bash
+npm run build
+npm run preview
+```
+
+### Delivered in this iteration
+
+- A six-section homepage using the user design as the static visual reference
+- Route packets, state rotation, counter animation, and interaction feedback based on the interactive prototype
+- Bundled fonts and design-derived product previews, pixel mascot, and decorative wordmark
+- `tests/ui.spec.js`: desktop, mobile, interaction, asset, overflow, and accessibility checks
+- `TEST_REPORT.md`: quantified acceptance results for the new candidate
 - `docs/screenshots/`: desktop and mobile full-page screenshots
-- `.sealos/template/`: Sealos Template and icon
-- `deploy/deployment.log`: deployment phase record
-- Live URL: `https://sealos-brain-ui-dinkkees.sealoshzh.site`
+
+### Release order
+
+1. Review `http://127.0.0.1:4175/` locally.
+2. After visual and motion approval, commit the code and create a new version tag.
+3. Build a new immutable GHCR tag; do not overwrite an old tag.
+4. Update the Sealos Deployment in place.
+5. Repeat Playwright, HTTP, log, and stability-window checks against the public URL.
 
 ### Maintenance boundary
 
-This page is an interactive frontend prototype. Project Journey, AI Ops, AI Proxy, Skills, and App Store flows are browser state machines in `script.js`; they do not create real cloud resources or call production business APIs.
-
-After a UI update, run `npm run test:e2e` before building a new image and updating the Sealos Deployment. Roll back to a previous immutable GHCR tag or Kubernetes rollout revision; never overwrite an existing image tag.
-
-When local Docker is unavailable, manually run `Release container image` in GitHub Actions with a new immutable timestamp tag.
+The page remains an interactive frontend demonstration. Deploy, issue repair, AI Proxy, Skills, and App Store flows are browser state machines in `script.js`; they do not create cloud resources or call production business APIs.

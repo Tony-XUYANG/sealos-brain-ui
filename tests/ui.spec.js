@@ -2,10 +2,10 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 
 const sections = [
-  ['#deploy', 'Deploy any project to the cloud.'],
+  ['#deploy', 'one production path.'],
   ['#intelligence', 'Sealos fixes it.'],
   ['#ai', 'Multi-model injection'],
-  ['#skills', 'Keep coding locally.'],
+  ['#skills', 'Ship through one Skill.'],
   ['#app-store', 'Run it in one click.'],
   ['#scale', 'Running everywhere.']
 ];
@@ -41,47 +41,83 @@ test('renders all six product sections and valid in-page anchors', async ({ page
       .filter((href) => href && href.length > 1 && !document.querySelector(href))
   );
   expect(missingAnchors).toEqual([]);
-
-  await page.locator('a[href="#scale"]:visible').first().click();
-  await expect(page).toHaveURL(/#scale$/);
-  await expect(page.locator('#scale')).toBeInViewport();
 });
 
-test('journey animation can pause, resume, and enter deployment state', async ({ page }) => {
-  const map = page.locator('.journey-map');
-  const pause = page.locator('.journey-pause');
+test('matches the desktop design canvas geometry', async ({ page }, testInfo) => {
+  test.skip(!testInfo.project.name.startsWith('desktop'), 'Desktop design baseline');
+  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.reload();
+  await page.evaluate(() => document.fonts.ready);
 
-  await pause.click();
-  await expect(map).toHaveClass(/paused/);
-  await expect(pause).toHaveAttribute('aria-label', 'Play journey animation');
-  await pause.click();
-  await expect(map).not.toHaveClass(/paused/);
+  const geometry = await page.evaluate(() => ({
+    width: document.documentElement.scrollWidth,
+    height: document.documentElement.scrollHeight,
+    blocks: [...document.querySelectorAll('.site-header, main > section, main > .section-divider, .site-footer')]
+      .map((element) => ({
+        id: element.id || element.className,
+        top: Math.round(element.getBoundingClientRect().top + scrollY),
+        height: Math.round(element.getBoundingClientRect().height)
+      }))
+  }));
+
+  expect(geometry.width).toBe(1440);
+  expect(geometry.height).toBe(6456);
+  expect(geometry.blocks).toEqual([
+    { id: 'site-header', top: 0, height: 80 },
+    { id: 'deploy', top: 80, height: 720 },
+    { id: 'section-divider', top: 800, height: 75 },
+    { id: 'intelligence', top: 875, height: 815 },
+    { id: 'ai', top: 1690, height: 1070 },
+    { id: 'skills', top: 2760, height: 965 },
+    { id: 'section-divider divider-two', top: 3725, height: 84 },
+    { id: 'app-store', top: 3809, height: 930 },
+    { id: 'scale', top: 4739, height: 972 },
+    { id: 'footer', top: 5711, height: 745 }
+  ]);
+});
+
+test('deploy form runs the agent workflow', async ({ page }) => {
+  const map = page.locator('.journey-map');
+  const button = page.locator('#deploy-form button');
 
   await page.locator('#repo-url').fill('https://github.com/labring/sealos');
-  await page.locator('#deploy-form button').click();
-  await expect(map).toHaveAttribute('data-journey-phase', 'agent');
-  await expect(page.locator('#deploy-form button')).toContainText('Deploying');
+  await button.click();
+  await expect(map).toHaveAttribute('data-journey-phase', 'analyze');
+  await expect(button).toContainText('Deploying');
+  await expect(map).toHaveAttribute('data-journey-phase', 'ready', { timeout: 4_000 });
+  await expect(button).toContainText('Deploy');
 });
 
-test('AI Ops supports scenario switching and pause control', async ({ page }) => {
+test('issue categories update the highlighted system', async ({ page }) => {
   const theater = page.locator('.ops-theater');
-  const containerScenario = page.locator('[data-stage-button="container"]');
-  await containerScenario.click();
-  await expect(theater).toHaveAttribute('data-stage', 'container');
-  await expect(containerScenario).toHaveAttribute('aria-selected', 'true');
-
-  const pause = page.locator('.demo-pause');
-  await pause.click();
-  await expect(theater).toHaveClass(/paused/);
-  await expect(pause).toHaveAttribute('aria-label', 'Play animation');
+  const network = page.locator('[data-stage-button="network"]');
+  await network.click();
+  await expect(theater).toHaveAttribute('data-stage', 'network');
+  await expect(network).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('.network-card')).toHaveClass(/active/);
 });
 
-test('App Store selection updates the deployment experience', async ({ page }) => {
-  const n8n = page.locator('[data-store-app="n8n"]');
-  await n8n.click();
-  await expect(n8n).toHaveClass(/active/);
-  await expect(page.locator('.store-agent-form input')).toHaveValue('Deploy an n8n workflow service');
-  await expect(page.locator('.store-result-name')).toContainText('n8n');
+test('AI proxy and Skills expose the animated production graph', async ({ page }) => {
+  await expect(page.locator('.provider')).toHaveCount(7);
+  await expect(page.locator('.ai-routes animateMotion')).toHaveCount(3);
+  await expect(page.locator('.skills-routes animateMotion')).toHaveCount(3);
+  await expect(page.locator('[data-skill-stage]')).toHaveCount(4);
+
+  const copy = page.locator('.copy-button');
+  await copy.click();
+  await expect(copy).toHaveAttribute('aria-label', 'Copied');
+});
+
+test('App Store cards and deploy command update state', async ({ page }) => {
+  const activeCard = page.locator('.app-card.active');
+  await activeCard.locator('button').click();
+  await expect(activeCard).toHaveClass(/selected/);
+  await expect(page.locator('#store-query')).toHaveValue('Deploy a Dify application');
+
+  await page.locator('.store-form button').click();
+  await expect(page.locator('.store-grid')).toHaveAttribute('data-store-phase', 'deploying');
+  await expect(page.locator('.store-grid')).toHaveAttribute('data-store-phase', 'complete', { timeout: 3_000 });
 });
 
 test('scale counters animate to their published values', async ({ page }) => {
@@ -92,7 +128,7 @@ test('scale counters animate to their published values', async ({ page }) => {
   await expect(page.locator('[data-count="1000"]')).toHaveText('1,000');
 });
 
-test('has no page errors, serious accessibility violations, or layout overflow', async ({ page }) => {
+test('has no page errors, broken assets, serious accessibility violations, or layout overflow', async ({ page }) => {
   const runtimeErrors = watchRuntimeErrors(page);
   await page.reload();
   await page.evaluate(() => document.fonts.ready);
@@ -101,26 +137,29 @@ test('has no page errors, serious accessibility violations, or layout overflow',
     await page.locator(selector).scrollIntoViewIfNeeded();
   }
 
-  const horizontalOverflow = await page.evaluate(() => ({
+  const layout = await page.evaluate(() => ({
     viewport: window.innerWidth,
     documentWidth: document.documentElement.scrollWidth,
-    bodyWidth: document.body.scrollWidth
+    bodyWidth: document.body.scrollWidth,
+    brokenImages: [...document.images]
+      .filter((image) => !image.complete || image.naturalWidth === 0)
+      .map((image) => image.currentSrc || image.src),
+    textOverflow: [...document.querySelectorAll('h1,h2,h3,p,a,button,strong,span,b,em,code')]
+      .flatMap((element) => {
+        const style = getComputedStyle(element);
+        const rect = element.getBoundingClientRect();
+        if (style.display === 'none' || style.visibility === 'hidden' || rect.width === 0 || rect.height === 0) return [];
+        if (element.getAttribute('aria-hidden') === 'true') return [];
+        if (['auto', 'scroll', 'hidden', 'clip'].includes(style.overflowX)) return [];
+        if (element.scrollWidth <= element.clientWidth + 1) return [];
+        return [`${element.tagName.toLowerCase()}.${element.className || '(no-class)'}`];
+      })
   }));
-  expect(horizontalOverflow.documentWidth).toBeLessThanOrEqual(horizontalOverflow.viewport + 1);
-  expect(horizontalOverflow.bodyWidth).toBeLessThanOrEqual(horizontalOverflow.viewport + 1);
 
-  const textOverflow = await page.evaluate(() => {
-    const selectors = 'h1,h2,h3,p,a,button,strong,span,b,em,code';
-    return [...document.querySelectorAll(selectors)].flatMap((element) => {
-      const style = getComputedStyle(element);
-      const rect = element.getBoundingClientRect();
-      if (style.display === 'none' || style.visibility === 'hidden' || rect.width === 0 || rect.height === 0) return [];
-      if (['auto', 'scroll', 'hidden', 'clip'].includes(style.overflowX)) return [];
-      if (element.scrollWidth <= element.clientWidth + 1) return [];
-      return [`${element.tagName.toLowerCase()}.${element.className || '(no-class)'}`];
-    });
-  });
-  expect(textOverflow).toEqual([]);
+  expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewport + 1);
+  expect(layout.bodyWidth).toBeLessThanOrEqual(layout.viewport + 1);
+  expect(layout.brokenImages).toEqual([]);
+  expect(layout.textOverflow).toEqual([]);
 
   const accessibility = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa'])
@@ -146,9 +185,12 @@ test('mobile navigation opens and closes', async ({ page }, testInfo) => {
   await expect(header).not.toHaveClass(/menu-open/);
 });
 
-test('captures acceptance screenshot when requested', async ({ page }, testInfo) => {
+test('captures acceptance screenshots when requested', async ({ page }, testInfo) => {
   test.skip(process.env.CAPTURE_SCREENSHOTS !== '1', 'Screenshot capture is opt-in');
   await page.emulateMedia({ reducedMotion: 'reduce' });
+  if (testInfo.project.name.startsWith('desktop')) {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+  }
   await page.reload();
   await page.evaluate(() => document.fonts.ready);
   const filename = testInfo.project.name.startsWith('mobile') ? 'mobile.png' : 'desktop.png';

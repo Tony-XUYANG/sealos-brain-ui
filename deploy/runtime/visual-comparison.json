@@ -1,19 +1,33 @@
 {
-  "reference_url": "https://sealos-brain-homepage-8c88c619.usw-1.sealos.app/",
-  "release_url": "https://sealos-brain-ui-dinkkees.sealoshzh.site/",
-  "method": "Full-page screenshots with reduced motion, paused CSS/SVG animation, and loaded fonts",
-  "desktop": {
-    "viewport": "1440x1000",
-    "reference_size": "1440x6190",
-    "release_size": "1440x6190",
-    "changed_pixels_percent": 0.448360,
-    "mean_channel_difference": [0.039494, 0.076142, 0.121438]
+  "generated_at": "2026-08-26",
+  "reference": {
+    "type": "user-provided design image",
+    "source_size": "2880x12912",
+    "normalized_size": "1440x6456",
+    "normalization": "2x pixel density downsampled with Lanczos"
+  },
+  "implementation": {
+    "screenshot": "docs/screenshots/desktop.png",
+    "size": "1440x6456",
+    "motion": "prefers-reduced-motion: reduce",
+    "fonts": "local bundled fonts loaded"
+  },
+  "difference": {
+    "mean_absolute_channel_difference": [4.7359, 4.9557, 5.3229],
+    "mean_absolute_difference": 5.0048,
+    "rmse": 26.8519,
+    "changed_pixels_percent": {
+      "max_channel_above_2": 14.7728,
+      "max_channel_above_5": 8.8515,
+      "max_channel_above_10": 5.9220,
+      "max_channel_above_20": 4.1550,
+      "max_channel_above_35": 3.3268,
+      "max_channel_above_50": 2.9300
+    }
   },
   "mobile": {
-    "viewport": "390x844",
-    "reference_size": "390x10172",
-    "release_size": "390x10172",
-    "changed_pixels_percent": 0.420410,
-    "mean_channel_difference": [0.035259, 0.069117, 0.111295]
+    "screenshot": "docs/screenshots/mobile.png",
+    "size": "390x9930",
+    "note": "No separate mobile design was supplied; mobile is accepted through responsive, overflow, interaction, and accessibility tests."
   }
 }
