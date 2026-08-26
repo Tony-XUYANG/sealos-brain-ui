@@ -12,6 +12,7 @@ Date / 日期: `2026-08-26`
 - Deploy 逐项打勾、六项故障逐项修复、问题分类切换、AI Proxy 与 Skills 动效结构
 - Deploy 与 AI Proxy 线路端点和实际卡片、模型图标中心坐标的几何断言
 - 故障区 3 条动态连接粒子、AI Proxy 到 7 个模型的独立粒子路径，以及故障区外层点阵移除
+- Skills 四个输入源的独立移动粒子、一个输出粒子，以及所有部署入口的设计稿火箭图标
 - Skills 命令复制、App Store 选择与部署状态
 - Scale 数字动画和移动菜单
 - 桌面 `1280x720` 与移动端 `390x844` 的横向溢出、文字溢出、断图、浏览器错误和严重可访问性问题
@@ -20,7 +21,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: 通过
 - 本地 `npm run test:e2e`: 通过，`19 passed / 5 conditional skipped`
-- GitHub Actions CI: 通过，[run 32971157250](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32971157250)
+- GitHub Actions CI: 通过，[run 32976160518](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32976160518)
 - 公网 Playwright 与截图验收: 通过，`21 passed / 3 viewport-specific skipped`
 - 控制台错误与页面运行时错误: `0`
 - 断图: `0`
@@ -35,11 +36,11 @@ Date / 日期: `2026-08-26`
 
 - 实现截图尺寸: `1440x6456`
 - 设计稿归一化尺寸: `1440x6456`
-- 平均绝对通道差: `[4.8648, 4.9812, 5.5819] / 255`
-- 总体平均绝对差: `5.1426 / 255`
-- 最大通道差超过 `10` 的像素: `5.9858%`
-- 最大通道差超过 `20` 的像素: `4.2539%`
-- 最大通道差超过 `50` 的像素: `2.9382%`
+- 平均绝对通道差: `[4.8571, 4.9713, 5.5929] / 255`
+- 总体平均绝对差: `5.1404 / 255`
+- 最大通道差超过 `10` 的像素: `6.0021%`
+- 最大通道差超过 `20` 的像素: `4.2710%`
+- 最大通道差超过 `50` 的像素: `2.9668%`
 
 新增局部参考图验收：AI Proxy 的 `412x313` 归一化裁切平均绝对差从 `4.6420` 降至 `2.2936 / 255`，RMSE 从 `20.1296` 降至 `12.7329`。Deploy 区域按新标注取消 Cloud 卡片底部裁切；这项新要求覆盖整页旧设计稿中被裁切的状态，因此整页均差有小幅变化。
 
@@ -54,12 +55,14 @@ Date / 日期: `2026-08-26`
 
 - 公网地址: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`，`1/1 Ready`，Pod 重启 `0`
-- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
-- 镜像 digest: `sha256:d295916440a5a46d2a978e1a00053928bbeed3612e9cdd4a0d7db331cd89403a`
+- 镜像: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-214738`
+- 镜像 digest: `sha256:40afdf932b294541c80496aebff2a289f7e526129697b4418f74720557dae28e`
 - GHCR 匿名 manifest: `HTTP 200`，包含 `linux/amd64`
 - Launchpad 公网检查: `ok: true`，Service 端口 `8080`，域名一致
 - HTTP: `/` 为 `200`，`/healthz` 为 `200`，随机路径为 `404`
-- 稳定窗口: `137` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+- 稳定窗口: 恢复基线后 `91` 秒，活动失败事件 `0`，重启增量 `0`，Pod 未替换，Ready 转换未变化
+
+公开 E2E 压测后首次比较记录到一次 Ready 转换时间变化，但没有容器重启、错误日志或 Warning 事件。恢复为 Ready 后重新建立基线，最终 `91` 秒严格稳定窗口通过；首次比较保存在 `deploy/runtime/post-e2e-runtime.json`。
 
 机器可读证据保存在 `deploy/runtime/`。
 
@@ -72,6 +75,7 @@ Date / 日期: `2026-08-26`
 - Sequential deployment checks, item-by-item repair of six incidents, issue category switching, and AI Proxy/Skills animation structure
 - Rendered-geometry assertions for Deploy and AI Proxy route endpoints, card edges, and provider centers
 - Three moving issue-route particles, independent routes to all seven AI providers, and removal of the issue-section backdrop grid
+- Independent moving particles for all four Skills inputs and the output route, plus design-matched rocket icons on every deployment action
 - Skills command copy, App Store selection, and deployment state
 - Scale counter animation and mobile navigation
 - Horizontal overflow, text overflow, broken assets, browser errors, and serious accessibility findings at desktop `1280x720` and mobile `390x844`
@@ -80,7 +84,7 @@ Date / 日期: `2026-08-26`
 
 - `npm run build`: passed
 - Local `npm run test:e2e`: passed, `19 passed / 5 conditional skipped`
-- GitHub Actions CI: passed, [run 32971157250](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32971157250)
+- GitHub Actions CI: passed, [run 32976160518](https://github.com/Tony-XUYANG/sealos-brain-ui/actions/runs/32976160518)
 - Public Playwright and screenshot acceptance: passed, `21 passed / 3 viewport-specific skipped`
 - Console and page runtime errors: `0`
 - Broken images: `0`
@@ -95,11 +99,11 @@ The original design is `2880x12912`, normalized to `1440x6456` for its `2x` pixe
 
 - Implementation screenshot: `1440x6456`
 - Normalized design: `1440x6456`
-- Mean absolute channel difference: `[4.8648, 4.9812, 5.5819] / 255`
-- Overall mean absolute difference: `5.1426 / 255`
-- Pixels with maximum channel difference above `10`: `5.9858%`
-- Pixels with maximum channel difference above `20`: `4.2539%`
-- Pixels with maximum channel difference above `50`: `2.9382%`
+- Mean absolute channel difference: `[4.8571, 4.9713, 5.5929] / 255`
+- Overall mean absolute difference: `5.1404 / 255`
+- Pixels with maximum channel difference above `10`: `6.0021%`
+- Pixels with maximum channel difference above `20`: `4.2710%`
+- Pixels with maximum channel difference above `50`: `2.9668%`
 
 New detail-reference acceptance: the normalized `412x313` AI Proxy crop improved from `4.6420` to `2.2936 / 255` mean absolute difference, with RMSE reduced from `20.1296` to `12.7329`. The Deploy detail now keeps the Cloud card bottom visible as requested; this newer annotation supersedes the clipped state in the original full-page baseline, so the full-page mean changes slightly.
 
@@ -114,11 +118,13 @@ The desktop design is the static visual acceptance reference. No separate mobile
 
 - Public URL: https://sealos-brain-ui-dinkkees.sealoshzh.site
 - Deployment: `sealos-brain-ui-uelrpqvt`, `1/1 Ready`, Pod restarts `0`
-- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014`
-- Image digest: `sha256:d295916440a5a46d2a978e1a00053928bbeed3612e9cdd4a0d7db331cd89403a`
+- Image: `ghcr.io/tony-xuyang/sealos-brain-ui:20260826-214738`
+- Image digest: `sha256:40afdf932b294541c80496aebff2a289f7e526129697b4418f74720557dae28e`
 - Anonymous GHCR manifest: `HTTP 200`, including `linux/amd64`
 - Launchpad public-network check: `ok: true`, Service port `8080`, matching host
 - HTTP: `/` returned `200`, `/healthz` returned `200`, and a random path returned `404`
-- Stability window: `137` seconds, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+- Stability window: `91` seconds after the recovery baseline, active failures `0`, restart delta `0`, no Pod replacement, and no Ready transition change
+
+The first comparison after the public E2E load recorded one Ready transition-time change, with no container restart, error log, or Warning Event. A fresh baseline was captured after Ready recovered, and the final strict 91-second window passed. The first comparison remains in `deploy/runtime/post-e2e-runtime.json`.
 
 Machine-readable evidence is stored in `deploy/runtime/`.

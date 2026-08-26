@@ -1,8 +1,15 @@
 {
-    "generatedAt":  "2026-08-26T13:04:54.9648475Z",
-    "baseUrl":  "https://sealos-brain-ui-dinkkees.sealoshzh.site",
-    "root":  200,
-    "healthz":  200,
-    "missingPath":  "/__sealos_missing_1787749494",
-    "missing":  404
+    "generatedAt":  "2026-08-26T13:57:46.4598587Z",
+    "root":  {
+                 "path":  "/",
+                 "status":  200
+             },
+    "healthz":  {
+                    "path":  "/healthz",
+                    "status":  200
+                },
+    "missing":  {
+                    "path":  "/__sealos_missing_1787752666",
+                    "status":  404
+                }
 }

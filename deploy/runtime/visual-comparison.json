@@ -13,16 +13,16 @@
     "fonts": "local bundled fonts loaded"
   },
   "difference": {
-    "mean_absolute_channel_difference": [4.8648, 4.9812, 5.5819],
-    "mean_absolute_difference": 5.1426,
-    "rmse": 26.9061,
+    "mean_absolute_channel_difference": [4.8571, 4.9713, 5.5929],
+    "mean_absolute_difference": 5.1404,
+    "rmse": 26.9850,
     "changed_pixels_percent": {
-      "max_channel_above_2": 15.0975,
-      "max_channel_above_5": 8.9604,
-      "max_channel_above_10": 5.9858,
-      "max_channel_above_20": 4.2539,
-      "max_channel_above_35": 3.3359,
-      "max_channel_above_50": 2.9382
+      "max_channel_above_2": 14.1962,
+      "max_channel_above_5": 8.9337,
+      "max_channel_above_10": 6.0021,
+      "max_channel_above_20": 4.2710,
+      "max_channel_above_35": 3.3523,
+      "max_channel_above_50": 2.9668
     }
   },
   "detail_references": {

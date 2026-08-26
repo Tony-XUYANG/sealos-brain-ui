@@ -87,3 +87,15 @@
 [2026-08-26 21:03:34 +08:00] Deployment rollout completed; new Pod 1/1 Ready with 0 restarts and Service endpoint 10.109.90.97:8080.
 [2026-08-26 21:06:44 +08:00] Runtime truth passed: 137-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
 [2026-08-26 21:08:00 +08:00] Public Playwright and screenshot acceptance passed: 21 tests, 3 viewport-specific skips; all 3 issue particles and all 7 provider particles changed coordinates, background grid removed, 0 console errors.
+[2026-08-26 21:21:57 +08:00] === Skills Input Route Completion ===
+[2026-08-26 21:21:57 +08:00] GitHub main advanced to e387294ec2a1f4ad237e5244c0b9dc8330f5b3d4; CI run 32973765841 passed with five verified Skills packet paths.
+[2026-08-26 21:25:20 +08:00] Image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-212442, public linux/amd64 manifest HTTP 200, digest sha256:78bfba90a5f341582d9b2f800bcc38a5be478ac7d24af37179988214a4a04288.
+[2026-08-26 21:27:28 +08:00] Deployment rollout completed; all four Skills input particles and the output particle were verified moving on the public page.
+[2026-08-26 21:43:17 +08:00] === Rocket Icon Fidelity ===
+[2026-08-26 21:46:02 +08:00] GitHub main advanced to 7b72ba4afa1a4f065b413b692e68ccebc8d56b95; CI run 32976160518 passed.
+[2026-08-26 21:48:44 +08:00] Image build passed: ghcr.io/tony-xuyang/sealos-brain-ui:20260826-214738, public linux/amd64 manifest HTTP 200, digest sha256:40afdf932b294541c80496aebff2a289f7e526129697b4418f74720557dae28e.
+[2026-08-26 21:51:27 +08:00] Deployment rollout completed; Pod sealos-brain-ui-uelrpqvt-8466ddf77f-cclsh reached 1/1 Ready with 0 restarts and Service endpoint 10.107.98.131:8080.
+[2026-08-26 21:53:31 +08:00] Public Playwright and screenshot acceptance passed: 21 tests, 3 viewport-specific skips; two primary rocket icons and all five Skills packets verified, with 0 console errors.
+[2026-08-26 21:57:46 +08:00] The first post-E2E comparison observed one Ready transition-time change with 0 restarts, 0 Warning Events, and no error-log signals; recovery baseline captured after Ready stabilized.
+[2026-08-26 22:01:10 +08:00] Runtime truth passed from the recovery baseline: 91-second comparison window, 0 active failures, 0 restart delta, no Pod replacement or Ready transition change.
+[2026-08-26 22:01:10 +08:00] HTTP acceptance passed: root 200, healthz 200, random missing path 404; Launchpad and footprint checks both ok.

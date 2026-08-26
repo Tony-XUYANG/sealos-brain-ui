@@ -5,12 +5,12 @@
     "app_host": "sealos-brain-ui-dinkkees",
     "namespace": "ns-fmb1gbvg",
     "region": "sealoshzh.site",
-    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014",
+    "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-214738",
     "docker_hub_user": null,
     "repo_name": "sealos-brain-ui",
     "url": "https://sealos-brain-ui-dinkkees.sealoshzh.site",
     "deployed_at": "2026-08-25T11:21:17.000Z",
-    "last_updated_at": "2026-08-26T13:06:44.752Z"
+    "last_updated_at": "2026-08-26T13:51:27.000Z"
   },
   "history": [
     {
@@ -92,6 +92,24 @@
       "method": "kubectl-set-image",
       "status": "success",
       "note": "Animated all three issue routes and all seven AI provider routes, and removed the issue-section background dot grid"
+    },
+    {
+      "at": "2026-08-26T13:27:28.000Z",
+      "action": "set-image",
+      "previous_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-210014",
+      "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-212442",
+      "method": "kubectl-set-image",
+      "status": "success",
+      "note": "Added independent moving particles for all four Skills inputs and the output route"
+    },
+    {
+      "at": "2026-08-26T13:51:27.000Z",
+      "action": "set-image",
+      "previous_image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-212442",
+      "image": "ghcr.io/tony-xuyang/sealos-brain-ui:20260826-214738",
+      "method": "kubectl-set-image",
+      "status": "success",
+      "note": "Replaced pencil-like deployment marks with design-matched rocket icons while preserving the five Skills route particles"
     }
   ]
 }
